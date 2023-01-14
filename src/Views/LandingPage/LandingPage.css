@@ -1,0 +1,27 @@
+body {
+  background: #fccb90;
+}
+
+#title {
+  font-family: "Michroma";
+  font-weight: 100;
+  color: gray;
+}
+.btn.nohover:hover {
+  /* here copy default .btn class styles */
+  cursor: default !important;
+
+  /* or something like that */
+}
+
+.buttons {
+  margin: 15px auto;
+  width: 700px;
+  text-align: center;
+}
+
+.form-control:focus {
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #ced4da !important;
+}
