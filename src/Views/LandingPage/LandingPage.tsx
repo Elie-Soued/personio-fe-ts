@@ -7,7 +7,7 @@ import responsability from "../../images/responsability.jpg";
 import "./LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function LandingPage() {
+export default function LandingPage() {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
 
@@ -26,6 +26,10 @@ function LandingPage() {
     } else {
       setTokenAndNavigate(response);
     }
+  };
+
+  const register = () => {
+    navigate("/register");
   };
 
   const setTokenAndNavigate = (response: any) => {
@@ -116,7 +120,13 @@ function LandingPage() {
                 {/* create account*/}
                 <div className="d-flex align-items-center justify-content-center pb-4">
                   <p className="mb-0 me-2">Don't have an account?</p>
-                  <button type="button" className="btn btn-outline-secondary">
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary"
+                    onClick={() => {
+                      register();
+                    }}
+                  >
                     Create new
                   </button>
                 </div>
@@ -151,5 +161,3 @@ function LandingPage() {
     </div>
   );
 }
-
-export default LandingPage;
