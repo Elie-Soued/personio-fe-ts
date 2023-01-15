@@ -79,7 +79,7 @@ const RegisterPage: React.FC<ISectionProps> = ({
           height: "100%",
         }}
       >
-        <Col className="p-0 m-0" xs={3} style={{}}>
+        <Col className="p-0 m-0" xs={2} style={{}}>
           <Navbar
             className="w-100"
             bg="secondary"
@@ -108,7 +108,7 @@ const RegisterPage: React.FC<ISectionProps> = ({
           </Navbar>
         </Col>
 
-        <Col className="p-0" style={{}} xs={4}>
+        <Col className="p-0" style={{}} xs={5}>
           {renderActiveSection(activeSection)}
         </Col>
         <Col className="p-0" style={{}} xs={5}>
