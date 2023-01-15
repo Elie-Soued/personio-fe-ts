@@ -1,13 +1,40 @@
-import React from "react";
-import { MDBBtn, MDBContainer, MDBInput } from "mdb-react-ui-kit";
-
+import { useState } from "react";
+import { MDBContainer } from "mdb-react-ui-kit";
+import { doRequest, URLLogin } from "../../Utils/ServiceUtils";
+import { useNavigate } from "react-router-dom";
 import undersurface from "../../images/undersurface.jpg";
 import responsability from "../../images/responsability.jpg";
-
 import "./LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function LandingPage() {
+  let [username, setUsername] = useState("");
+  let [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const login = async () => {
+    const response: any = await doRequest("post", URLLogin, {
+      username,
+      password,
+    });
+
+    if (response.data.code === 404) {
+      alert(response.data.message);
+    } else if (response.data.code === 401) {
+      alert(response.data.message);
+    } else {
+      setTokenAndNavigate(response);
+    }
+  };
+
+  const setTokenAndNavigate = (response: any) => {
+    const token = response?.data.accessToken;
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", username);
+    navigate("/dashboard");
+  };
+
   return (
     <div
       className="p-5"
@@ -34,36 +61,65 @@ function LandingPage() {
                 </h4>
               </div>
 
-              <p>Please login to your account</p>
-
-              <MDBInput
-                wrapperClass="mb-1"
-                label="Email address"
-                id="form1"
-                type="email"
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Password"
-                id="form2"
-                type="password"
-              />
-
-              <div className="text-center pt-1 mb-5 pb-1">
-                <MDBBtn className="mb-4 w-100 gradient-custom-2" id="signin">
-                  Sign in
-                </MDBBtn>
-                <a className="text-muted" href="#!">
-                  Forgot password?
-                </a>
-              </div>
-
-              <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
-                <p className="mb-0">Don't have an account?</p>
-                <MDBBtn outline className="mx-2" color="secondary">
-                  Create your Account
-                </MDBBtn>
-              </div>
+              <form>
+                {/* Email */}
+                <div>
+                  <input
+                    type="email"
+                    id="form2Example11"
+                    style={{ border: "1px solid lightgray" }}
+                    className="form-control"
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
+                  />
+                  <label
+                    className="form-label"
+                    htmlFor="form2Example11"
+                  ></label>
+                </div>
+                {/* Password*/}
+                <div>
+                  <input
+                    type="password"
+                    id="form2Example22"
+                    className="form-control"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                  <label
+                    className="form-label"
+                    htmlFor="form2Example22"
+                  ></label>
+                </div>
+                {/* Sign in + forgot password*/}
+                <div className="text-center pt-1 mb-5 pb-1">
+                  <button
+                    className="btn btn-primary btn-block fa-lg  mb-3"
+                    type="button"
+                    onClick={() => {
+                      login();
+                    }}
+                  >
+                    Log in
+                  </button>
+                  <a className="text-muted" href="#!">
+                    Forgot password?
+                  </a>
+                </div>
+                {/* create account*/}
+                <div className="d-flex align-items-center justify-content-center pb-4">
+                  <p className="mb-0 me-2">Don't have an account?</p>
+                  <button type="button" className="btn btn-outline-secondary">
+                    Create new
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
 
