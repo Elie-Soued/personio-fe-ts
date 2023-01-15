@@ -1,190 +1,127 @@
-import React from "react";
+import React, { useState } from "react";
+import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBRadio,
-} from "mdb-react-ui-kit";
+  HrInformation,
+  PersonalData,
+  PayrollInformation,
+  BankDetails,
+  EmergencyContact,
+  EmployeeEquipment,
+  Development,
+} from "./PersonalInfo";
 
-export default function RegisterPage() {
+import PublicProfile from "./PublicProfile";
+import { useNavigate } from "react-router-dom";
+import undersurface from "../../images/undersurface.jpg";
+
+interface ISectionProps {
+  activeSection: string;
+  setActiveSection: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function renderActiveSection(activeSection: string) {
+  switch (activeSection) {
+    case "Public Profile":
+      return <PublicProfile />;
+    case "Hr Information":
+      return <HrInformation />;
+    case "Personal Data":
+      return <PersonalData />;
+    case "Payroll Information":
+      return <PayrollInformation />;
+    case "Bank Details":
+      return <BankDetails />;
+    case "Emergency Contact":
+      return <EmergencyContact />;
+    case "Employee Equipment":
+      return <EmployeeEquipment />;
+    case "Development":
+      return <Development />;
+    default:
+      return <div>Please select a section from the navbar</div>;
+  }
+}
+
+const RegisterPage: React.FC<ISectionProps> = ({
+  activeSection,
+  setActiveSection,
+}) => {
+  const sections = [
+    "Public Profile",
+    "Hr Information",
+    "Personal Data",
+    "Payroll Information",
+    "Bank Details",
+    "Emergency Contact",
+    "Employee Equipment",
+    "Development",
+  ];
+
+  const navigate = useNavigate();
+
+  const backToLogin = () => {
+    navigate("/");
+  };
+
   return (
-    <MDBContainer
-      fluid
+    <div
+      className="d-flex justify-content-center p-5"
       style={{
         backgroundColor: "#eee",
-        border: "1px solid white",
+
         height: "100vh",
       }}
     >
-      <MDBRow className="justify-content-center align-items-center m-5">
-        <MDBCard className="col-lg-6">
-          <MDBCardBody className="px-4">
-            <h3 className="fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5">
-              Public Profile
-            </h3>
-
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="First Name"
-                  size="lg"
-                  id="form1"
-                  type="text"
-                />
-              </MDBCol>
-
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Last Name"
-                  size="lg"
-                  id="form2"
-                  type="text"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-              <MDBCol md="6" className="mb-4">
-                <h6 className="fw-bold">Gender: </h6>
-                <MDBRadio
-                  name="inlineRadio"
-                  id="inlineRadio1"
-                  value="option1"
-                  label="Female"
-                  inline
-                />
-                <MDBRadio
-                  name="inlineRadio"
-                  id="inlineRadio2"
-                  value="option2"
-                  label="Male"
-                  inline
-                />
-                <MDBRadio
-                  name="inlineRadio"
-                  id="inlineRadio3"
-                  value="option3"
-                  label="Other"
-                  inline
-                />
-              </MDBCol>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Email"
-                  size="lg"
-                  id="form4"
-                  type="email"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Company Phone Number"
-                  size="lg"
-                  id="form3"
-                  type="text"
-                />
-              </MDBCol>
-
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Office"
-                  size="lg"
-                  id="form5"
-                  type="rel"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Department"
-                  size="lg"
-                  id="form3"
-                  type="text"
-                />
-              </MDBCol>
-
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Position"
-                  size="lg"
-                  id="form5"
-                  type="rel"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Team"
-                  size="lg"
-                  id="form3"
-                  type="text"
-                />
-              </MDBCol>
-
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="LinkedIn"
-                  size="lg"
-                  id="form5"
-                  type="rel"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Birthday"
-                  size="lg"
-                  id="form3"
-                  type="text"
-                />
-              </MDBCol>
-
-              <MDBCol md="6">
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Phone Number"
-                  size="lg"
-                  id="form5"
-                  type="rel"
-                />
-              </MDBCol>
-            </MDBRow>
-
-            <div className=" d-flex flex-column justify-content-center text-center pt-1 mb-5 pb-1">
-              <div className="d-flex justify-content-center p-2">
-                <button
-                  className="btn btn-primary btn-block fa-lg  mb-3 active w-25"
-                  type="button"
+      <Row
+        className="col-lg-8"
+        style={{
+          height: "100%",
+        }}
+      >
+        <Col className="p-0 m-0" xs={3} style={{}}>
+          <Navbar
+            className="w-100"
+            bg="secondary"
+            variant="dark"
+            style={{
+              height: "100%",
+            }}
+          >
+            <Nav
+              className="flex-column d-flex justify-content-between w-100"
+              style={{
+                height: "100%",
+              }}
+            >
+              {sections.map((section) => (
+                <Nav.Link
+                  className="text-center"
+                  style={{}}
+                  key={section}
+                  onClick={() => setActiveSection(section)}
                 >
-                  Next
-                </button>
-              </div>
-            </div>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBRow>
-    </MDBContainer>
+                  {section}
+                </Nav.Link>
+              ))}
+            </Nav>
+          </Navbar>
+        </Col>
+        <Col className="p-0" style={{}} xs={9}>
+          {renderActiveSection(activeSection)}
+        </Col>
+        <div className="col-xl-12 p-0 m-0">
+          <div className="col-xl-12">
+            <img
+              className="w-100"
+              src={undersurface}
+              style={{ borderRadius: "5px" }}
+              alt="footer"
+            ></img>
+          </div>
+        </div>
+      </Row>
+    </div>
   );
-}
+};
+
+export default RegisterPage;
