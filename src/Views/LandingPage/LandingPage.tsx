@@ -53,8 +53,8 @@ function LandingPage() {
         }}
       >
         <div className="row g-0">
-          <div className="col-lg-6 p-4">
-            <div className="d-flex flex-column ms-5">
+          <div className="d-flex align-items-center col-lg-6 p-4">
+            <div className="d-flex flex-column w-100">
               <div className="text-center " id="title">
                 <h4 className="mt-1 mb-5 pb-1">
                   <span id="my">My</span> tech11
@@ -63,12 +63,11 @@ function LandingPage() {
 
               <form>
                 {/* Email */}
-                <div>
+                <div className="d-flex justify-content-center p-2">
                   <input
                     type="email"
                     id="form2Example11"
-                    style={{ border: "1px solid lightgray" }}
-                    className="form-control"
+                    className="form-control w-75 "
                     placeholder="Enter your username"
                     value={username}
                     onChange={(e) => {
@@ -81,11 +80,11 @@ function LandingPage() {
                   ></label>
                 </div>
                 {/* Password*/}
-                <div>
+                <div className="d-flex justify-content-center p-2">
                   <input
                     type="password"
                     id="form2Example22"
-                    className="form-control"
+                    className="form-control w-75"
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => {
@@ -98,16 +97,18 @@ function LandingPage() {
                   ></label>
                 </div>
                 {/* Sign in + forgot password*/}
-                <div className="text-center pt-1 mb-5 pb-1">
-                  <button
-                    className="btn btn-primary btn-block fa-lg  mb-3"
-                    type="button"
-                    onClick={() => {
-                      login();
-                    }}
-                  >
-                    Log in
-                  </button>
+                <div className=" d-flex flex-column justify-content-center text-center pt-1 mb-5 pb-1">
+                  <div className="d-flex justify-content-center p-2">
+                    <button
+                      className="btn btn-primary btn-block fa-lg  mb-3 active w-75"
+                      type="button"
+                      onClick={() => {
+                        login();
+                      }}
+                    >
+                      Log in
+                    </button>
+                  </div>
                   <a className="text-muted" href="#!">
                     Forgot password?
                   </a>
