@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Navbar, Nav } from "react-bootstrap";
-import {
-  HrInformation,
-  PersonalData,
-  PayrollInformation,
-  BankDetails,
-  EmergencyContact,
-  EmployeeEquipment,
-  Development,
-} from "./PersonalInfo";
-
-import PublicProfile from "./PublicProfile";
 import { useNavigate } from "react-router-dom";
 import undersurface from "../../images/undersurface.jpg";
 import passion from "../../images/passion.jpg";
+import { Section } from "./Section";
 
 interface ISectionProps {
   activeSection: string;
@@ -21,26 +11,7 @@ interface ISectionProps {
 }
 
 function renderActiveSection(activeSection: string) {
-  switch (activeSection) {
-    case "Public Profile":
-      return <PublicProfile />;
-    case "Hr Information":
-      return <HrInformation />;
-    case "Personal Data":
-      return <PersonalData />;
-    case "Payroll Information":
-      return <PayrollInformation />;
-    case "Bank Details":
-      return <BankDetails />;
-    case "Emergency Contact":
-      return <EmergencyContact />;
-    case "Employee Equipment":
-      return <EmployeeEquipment />;
-    case "Development":
-      return <Development />;
-    default:
-      return <div>Please select a section from the navbar</div>;
-  }
+  return <Section name={activeSection} attributes />;
 }
 
 const RegisterPage: React.FC<ISectionProps> = ({
@@ -69,7 +40,6 @@ const RegisterPage: React.FC<ISectionProps> = ({
       className="d-flex justify-content-center p-5"
       style={{
         backgroundColor: "#eee",
-
         height: "100vh",
       }}
     >
@@ -113,7 +83,7 @@ const RegisterPage: React.FC<ISectionProps> = ({
         </Col>
         <Col className="p-0" style={{}} xs={5}>
           <img
-            className="w-100 h-100"
+            className="w-100 "
             src={passion}
             style={{ borderRadius: "5px" }}
             alt="passion"
