@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import undersurface from "../../images/undersurface.jpg";
 import king from "../../images/king.jpg";
 import { Section } from "./Section";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { MDBContainer } from "mdb-react-ui-kit";
+import NagigationBtns from "./NavigationBtn";
 
 const sections = [
   "Public Profile",
@@ -76,30 +74,11 @@ export default function RegisterPage() {
             <div className=" w-100">
               {renderActiveSection(activeSection)}
 
-              {/**Here is the button section */}
-
-              <div className="d-flex justify-content-center">
-                <div className="col-6 text-center p-2">
-                  <button
-                    className="btn btn-primary btn-block fa-lg   active w-10"
-                    onClick={() => {
-                      goToPreviousPage();
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-                  </button>
-                </div>
-                <div className="col-6 text-center p-2">
-                  <button
-                    className="btn btn-primary btn-block fa-lg  mb-3 active w-10"
-                    onClick={() => {
-                      goToNextPage();
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faArrowRight} size="lg" />
-                  </button>
-                </div>
-              </div>
+              <NagigationBtns
+                nextFn={goToNextPage}
+                prevFn={goToPreviousPage}
+                section={activeSection}
+              ></NagigationBtns>
             </div>
           </div>
 
