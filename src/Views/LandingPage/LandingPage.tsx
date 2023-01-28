@@ -127,7 +127,7 @@ export default function LandingPage() {
                       register();
                     }}
                   >
-                    Create new
+                    Create New Colleague
                   </button>
                 </div>
               </form>
