@@ -136,16 +136,5 @@ export const HrInformation = () => (
         />
       </MDBCol>
     </MDBRow>
-    <MDBRow>
-      <MDBCol md="6">
-        <MDBInput
-          wrapperClass="mb-4"
-          label="Enrollment certificate valid until"
-          size="lg"
-          id="form5"
-          type="date"
-        />
-      </MDBCol>
-    </MDBRow>
   </div>
 );
