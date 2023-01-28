@@ -3,8 +3,10 @@ import { Row, Col, Navbar, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import undersurface from "../../images/undersurface.jpg";
 import passion from "../../images/passion.jpg";
+import king from "../../images/king.jpg";
+import responsability from "../../images/responsability.jpg";
 import { Section } from "./Section";
-
+import { MDBContainer } from "mdb-react-ui-kit";
 interface ISectionProps {
   activeSection: string;
   setActiveSection: React.Dispatch<React.SetStateAction<string>>;
@@ -35,84 +37,54 @@ const RegisterPage: React.FC<ISectionProps> = ({
     navigate("/");
   };
 
+  console.log(activeSection);
+
   return (
     <div
-      className="d-flex justify-content-center p-5"
+      className="p-0"
       style={{
         backgroundColor: "#eee",
+        border: "4px solid white",
         height: "100vh",
       }}
     >
-      <Row
-        className="col-lg-8"
+      <MDBContainer
+        className="my-0 gradient-form h-auto"
         style={{
-          height: "100%",
+          backgroundColor: "white",
+          width: "auto",
+          padding: 0,
         }}
       >
-        <Col className="p-0 m-0" xs={2} style={{}}>
-          <Navbar
-            className="w-100"
-            bg="secondary"
-            variant="dark"
-            style={{
-              height: "100%",
-            }}
-          >
-            <Nav
-              className="flex-column d-flex justify-content-between w-100"
-              style={{
-                height: "100%",
-              }}
-            >
-              {sections.map((section) => (
-                <Nav.Link
-                  className="text-center"
-                  style={{}}
-                  key={section}
-                  onClick={() => setActiveSection(section)}
-                >
-                  {section}
-                </Nav.Link>
-              ))}
-            </Nav>
-          </Navbar>
-        </Col>
+        <div className="row g-0">
+          <div className="d-flex align-items-center col-lg-6 ">
+            <div className="d-flex flex-column w-100">
+              {renderActiveSection(activeSection)}
+            </div>
+          </div>
 
-        <Col className="p-0" style={{}} xs={4}>
-          {renderActiveSection(activeSection)}
-        </Col>
-        <Col className="p-0" xs={6}>
-          <img
-            className="w-100 "
-            src={passion}
-            style={{ borderRadius: "5px" }}
-            alt="passion"
-          ></img>
-        </Col>
-        <div className="col-xl-12 p-0 m-0">
+          <div className="rounded-top col-lg-6 d-flex align-items-center gradient-custom-2">
+            <div className="d-flex align-items-center gradient-custom-2 h-100">
+              <img
+                className="w-100"
+                src={king}
+                style={{ borderRadius: "5px" }}
+                alt="King"
+              ></img>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-12">
           <div className="col-xl-12">
             <img
               className="w-100"
               src={undersurface}
-              style={{ borderRadius: "5px", height: "100%" }}
+              style={{ borderRadius: "5px" }}
               alt="footer"
             ></img>
           </div>
         </div>
-        <div className=" d-flex flex-column justify-content-center text-center pt-1 mb-5 pb-1">
-          <div className="d-flex justify-content-center p-2">
-            <button
-              className="btn btn-primary btn-block fa-lg  mb-3 active w-10"
-              type="button"
-              onClick={() => {
-                backToLogin();
-              }}
-            >
-              Go Back to Log in
-            </button>
-          </div>
-        </div>
-      </Row>
+      </MDBContainer>
     </div>
   );
 };
