@@ -7,24 +7,11 @@ import { BankDetails } from "./RegisterSections/Bank";
 import { EmergencyContact } from "./RegisterSections/Emergency";
 import { EmployeeEquipment } from "./RegisterSections/Employee";
 import { Development } from "./RegisterSections/Development";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 interface ISection {
   name: string;
   attributes: any;
 }
-
-const sections = [
-  "Public Profile",
-  "Hr Information",
-  "Personal Data",
-  "Payroll Information",
-  "Bank Details",
-  "Emergency Contact",
-  "Employee Equipment",
-  "Development",
-];
 
 export const Section = ({ name }: ISection) => (
   <MDBContainer
@@ -91,10 +78,4 @@ const renderSection = (section: string) => {
     default:
       return undefined;
   }
-};
-
-const goToNextPage = (section: string) => {
-  const index = sections.indexOf(section);
-  console.log("sections[index+1] :>> ", sections[index + 1]);
-  renderSection(sections[index + 1]);
 };
