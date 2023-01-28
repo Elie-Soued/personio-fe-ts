@@ -44,6 +44,7 @@ export const Section = ({ name }: ISection) => (
         className="col-lg-12 p-4"
         style={{
           height: "100%",
+          minHeight: "805px",
         }}
       >
         <h3 className="fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5 p-3">
@@ -57,24 +58,6 @@ export const Section = ({ name }: ISection) => (
         >
           {renderSection(name)}
         </div>
-
-        <MDBRow className="p-2">
-          <MDBCol className="col-6 text-center">
-            <button className="btn btn-primary btn-block fa-lg  mb-3 active w-10">
-              <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-            </button>
-          </MDBCol>
-          <MDBCol className="col-6 text-center">
-            <button
-              className="btn btn-primary btn-block fa-lg  mb-3 active w-10"
-              onClick={() => {
-                goToNextPage(name);
-              }}
-            >
-              <FontAwesomeIcon icon={faArrowRight} size="lg" />
-            </button>
-          </MDBCol>
-        </MDBRow>
       </MDBCard>
     </MDBRow>
   </MDBContainer>
