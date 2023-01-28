@@ -1,5 +1,7 @@
+import { useContext } from "react";
+import { EmployeeContext } from "./RegisterPage";
 import { MDBContainer, MDBRow, MDBCard, MDBCol } from "mdb-react-ui-kit";
-import { PublicProfile } from "./RegisterSections/Public";
+import PublicProfile from "./RegisterSections/Public";
 import { HrInformation } from "./RegisterSections/HrInformation";
 import { PersonalData } from "./RegisterSections/Personal";
 import { PayrollInformation } from "./RegisterSections/Payroll";
@@ -13,42 +15,48 @@ interface ISection {
   attributes: any;
 }
 
-export const Section = ({ name }: ISection) => (
-  <MDBContainer
-    fluid
-    style={{
-      backgroundColor: "#eee",
-      height: "100%",
-    }}
-  >
-    <MDBRow
-      className="justify-content-center align-items-center "
+export default function Section({ name }: ISection) {
+  const context = useContext(EmployeeContext);
+
+  console.log("context in Section :>> ", context);
+
+  return (
+    <MDBContainer
+      fluid
       style={{
+        backgroundColor: "#eee",
         height: "100%",
       }}
     >
-      <MDBCard
-        className="col-lg-12 p-4"
+      <MDBRow
+        className="justify-content-center align-items-center "
         style={{
           height: "100%",
-          minHeight: "805px",
         }}
       >
-        <h3 className="fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5 p-3">
-          {name}
-        </h3>
-        <div
-          className="flex-column d-flex justify-content-between w-100"
+        <MDBCard
+          className="col-lg-12 p-4"
           style={{
-            height: "80%",
+            height: "100%",
+            minHeight: "805px",
           }}
         >
-          {renderSection(name)}
-        </div>
-      </MDBCard>
-    </MDBRow>
-  </MDBContainer>
-);
+          <h3 className="fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5 p-3">
+            {name}
+          </h3>
+          <div
+            className="flex-column d-flex justify-content-between w-100"
+            style={{
+              height: "80%",
+            }}
+          >
+            {renderSection(name)}
+          </div>
+        </MDBCard>
+      </MDBRow>
+    </MDBContainer>
+  );
+}
 
 const renderSection = (section: string) => {
   switch (section) {
