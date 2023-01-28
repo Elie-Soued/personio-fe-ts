@@ -78,10 +78,10 @@ const RegisterPage: React.FC<ISectionProps> = ({
           </Navbar>
         </Col>
 
-        <Col className="p-0" style={{}} xs={5}>
+        <Col className="p-0" style={{}} xs={4}>
           {renderActiveSection(activeSection)}
         </Col>
-        <Col className="p-0" style={{}} xs={5}>
+        <Col className="p-0" xs={6}>
           <img
             className="w-100 "
             src={passion}
