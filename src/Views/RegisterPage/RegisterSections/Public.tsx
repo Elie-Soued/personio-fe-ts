@@ -1,4 +1,4 @@
-import { MDBRow, MDBCol, MDBInput, MDBRadio } from "mdb-react-ui-kit";
+import { MDBRow, MDBCol, MDBInput, MDBRadio, MDBBtn } from "mdb-react-ui-kit";
 
 export const PublicProfile = () => (
   <div
@@ -12,6 +12,7 @@ export const PublicProfile = () => (
         <MDBInput
           wrapperClass="mb-4"
           label="First Name"
+          required
           size="lg"
           id="form1"
           type="text"
