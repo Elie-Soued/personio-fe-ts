@@ -1,34 +1,21 @@
-import { MDBRow, MDBCol, MDBInput, MDBRadio, MDBBtn } from "mdb-react-ui-kit";
-import { useState, useContext } from "react";
-
-import { EmployeeContext } from "../RegisterPage";
+import { MDBRow, MDBCol, MDBInput, MDBRadio } from "mdb-react-ui-kit";
+import { useContext } from "react";
+import { EmployeeContext } from "../EmployeeContext";
 
 export default function PublicProfile() {
-  const context = useContext(EmployeeContext);
+  const { employee, updateEmployee } = useContext(EmployeeContext);
 
-  console.log("context.public :>> ", context.public);
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
-  const [email, setEmail] = useState("");
-  const [companyNumb, setCompanyNumb] = useState("");
-  const [office, setOffice] = useState("");
-  const [department, setDepartment] = useState("");
-  const [position, setPosition] = useState("");
-  const [team, setTeam] = useState("");
-  const [linkedIn, setLinkedIn] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [phone, setPhone] = useState("");
-
-  const changeFirstName = (e: any) => {
-    setFirstName(() => e.target.value);
-    context.public.firstName = e.target.value;
-  };
-
-  const changeLastName = (e: any) => {
-    setLastName(() => e.target.value);
-    context.public.lastName = e.target.value;
+  const updateModel = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    property: string
+  ) => {
+    updateEmployee({
+      ...employee,
+      public: {
+        ...employee.public,
+        [property]: e.target.value,
+      },
+    });
   };
 
   return (
@@ -38,7 +25,7 @@ export default function PublicProfile() {
         height: "80%",
       }}
     >
-      <MDBRow style={{}}>
+      <MDBRow>
         <MDBCol md="6">
           <MDBInput
             wrapperClass="mb-4"
@@ -47,9 +34,9 @@ export default function PublicProfile() {
             size="lg"
             id="form1"
             type="text"
-            value={firstName}
+            value={employee.public.firstName}
             onChange={(e) => {
-              changeFirstName(e);
+              updateModel(e, "firstName");
             }}
           />
         </MDBCol>
@@ -61,9 +48,9 @@ export default function PublicProfile() {
             size="lg"
             id="form2"
             type="text"
-            value={lastName}
+            value={employee.public.lastName}
             onChange={(e) => {
-              changeLastName(e);
+              updateModel(e, "lastName");
             }}
           />
         </MDBCol>
@@ -101,9 +88,9 @@ export default function PublicProfile() {
             size="lg"
             id="form4"
             type="email"
-            value={email}
+            value={employee.public.email}
             onChange={(e) => {
-              setEmail(() => e.target.value);
+              updateModel(e, "email");
             }}
           />
         </MDBCol>
@@ -117,9 +104,9 @@ export default function PublicProfile() {
             size="lg"
             id="form3"
             type="text"
-            value={companyNumb}
+            value={employee.public.companyPhoneNumb}
             onChange={(e) => {
-              setCompanyNumb(() => e.target.value);
+              updateModel(e, "companyPhoneNumb");
             }}
           />
         </MDBCol>
@@ -131,9 +118,9 @@ export default function PublicProfile() {
             size="lg"
             id="form5"
             type="rel"
-            value={office}
+            value={employee.public.office}
             onChange={(e) => {
-              setOffice(() => e.target.value);
+              updateModel(e, "office");
             }}
           />
         </MDBCol>
@@ -147,9 +134,9 @@ export default function PublicProfile() {
             size="lg"
             id="form3"
             type="text"
-            value={department}
+            value={employee.public.department}
             onChange={(e) => {
-              setDepartment(() => e.target.value);
+              updateModel(e, "department");
             }}
           />
         </MDBCol>
@@ -161,9 +148,9 @@ export default function PublicProfile() {
             size="lg"
             id="form5"
             type="rel"
-            value={position}
+            value={employee.public.position}
             onChange={(e) => {
-              setPosition(() => e.target.value);
+              updateModel(e, "position");
             }}
           />
         </MDBCol>
@@ -177,9 +164,9 @@ export default function PublicProfile() {
             size="lg"
             id="form3"
             type="text"
-            value={team}
+            value={employee.public.team}
             onChange={(e) => {
-              setTeam(() => e.target.value);
+              updateModel(e, "team");
             }}
           />
         </MDBCol>
@@ -191,9 +178,9 @@ export default function PublicProfile() {
             size="lg"
             id="form5"
             type="rel"
-            value={linkedIn}
+            value={employee.public.linkedIn}
             onChange={(e) => {
-              setLinkedIn(() => e.target.value);
+              updateModel(e, "linkedIn");
             }}
           />
         </MDBCol>
@@ -207,9 +194,9 @@ export default function PublicProfile() {
             size="lg"
             id="form3"
             type="date"
-            value={birthday}
+            value={employee.public.birthday}
             onChange={(e) => {
-              setBirthday(() => e.target.value);
+              updateModel(e, "birthday");
             }}
           />
         </MDBCol>
@@ -221,9 +208,9 @@ export default function PublicProfile() {
             size="lg"
             id="form5"
             type="rel"
-            value={phone}
+            value={employee.public.phoneNumber}
             onChange={(e) => {
-              setPhone(() => e.target.value);
+              updateModel(e, "phoneNumber");
             }}
           />
         </MDBCol>
