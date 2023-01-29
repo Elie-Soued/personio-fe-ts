@@ -17,6 +17,7 @@ export type IEmployeeProfile = {
   hrInformation: {
     status: string;
     employmentType: string;
+    occupationType: string;
     supervisor: string;
     hireDate: string;
     contractEnd: string;
@@ -26,10 +27,9 @@ export type IEmployeeProfile = {
     costCenter: string;
     nationality: string;
     residentPermitValidUntil: string;
-    enrollementCertificateValidUntil: string;
   };
 
-  PersonalData: {
+  personalData: {
     streetAndHouseNumber: string;
     postalCode: string;
     city: string;
@@ -37,7 +37,7 @@ export type IEmployeeProfile = {
     privatePhone: string;
   };
 
-  PayrollInformation: {
+  payrollInformation: {
     salaryType: string;
     taxID: string;
     socialSecurityNumber: string;

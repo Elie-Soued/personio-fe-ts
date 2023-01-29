@@ -28,6 +28,7 @@ export const employeeProfileBlank = {
   hrInformation: {
     status: "",
     employmentType: "",
+    occupationType: "",
     supervisor: "",
     hireDate: "",
     contractEnd: "",
@@ -37,10 +38,9 @@ export const employeeProfileBlank = {
     costCenter: "",
     nationality: "",
     residentPermitValidUntil: "",
-    enrollementCertificateValidUntil: "",
   },
 
-  PersonalData: {
+  personalData: {
     streetAndHouseNumber: "",
     postalCode: "",
     city: "",
@@ -48,7 +48,7 @@ export const employeeProfileBlank = {
     privatePhone: "",
   },
 
-  PayrollInformation: {
+  payrollInformation: {
     salaryType: "",
     taxID: "",
     socialSecurityNumber: "",
