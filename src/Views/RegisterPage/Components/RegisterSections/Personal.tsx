@@ -1,6 +1,6 @@
 import { MDBRow, MDBCol, MDBInput } from "mdb-react-ui-kit";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
 export default function PersonalData() {
   const { employee, updateEmployee } = useContext(EmployeeContext);

@@ -6,9 +6,9 @@ import { IEmployeeProfile } from "./Interface/IEmployeeProfile";
 import { employeeProfileBlank, sections } from "./Constants/Constants";
 import { EmployeeContext } from "./EmployeeContext";
 
-import Section from "./RegisterSections/Section";
-import NagigationBtns from "./Buttons/NavigationBtn";
-import FooterBtns from "./Buttons/FooterBtns";
+import Section from "./Components/RegisterSections/Section";
+import NagigationBtns from "./Components/Buttons/NavigationBtn";
+import FooterBtns from "./Components/Buttons/FooterBtns";
 
 import undersurface from "../../images/undersurface.jpg";
 import king from "../../images/king.jpg";

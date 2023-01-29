@@ -1,8 +1,8 @@
 import { MDBRow, MDBCol, MDBInput } from "mdb-react-ui-kit";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
-export default function BankDetails() {
+export default function EmployeeEquipment() {
   const { employee, updateEmployee } = useContext(EmployeeContext);
 
   const updateModel = (
@@ -11,8 +11,8 @@ export default function BankDetails() {
   ) => {
     updateEmployee({
       ...employee,
-      bankDetails: {
-        ...employee.bankDetails,
+      employeeEquipment: {
+        ...employee.employeeEquipment,
         [property]: e.target.value,
       },
     });
@@ -29,39 +29,26 @@ export default function BankDetails() {
         <MDBCol md="8">
           <MDBInput
             wrapperClass="mb-4"
-            label="Holder of bank account"
+            label="Equipment Notebook"
             size="lg"
             id="form1"
             type="text"
-            value={employee.bankDetails.holderOfBankAccount}
+            value={employee.employeeEquipment.notebook}
             onChange={(e) => {
-              updateModel(e, "holderOfBankAccount");
+              updateModel(e, "notebook");
             }}
           />
         </MDBCol>
         <MDBCol md="8">
           <MDBInput
             wrapperClass="mb-4"
-            label="IBAN"
+            label="Equipment Cellphone (optional)"
             size="lg"
             id="form1"
             type="text"
-            value={employee.bankDetails.iban}
+            value={employee.employeeEquipment.cellPhone}
             onChange={(e) => {
-              updateModel(e, "iban");
-            }}
-          />
-        </MDBCol>
-        <MDBCol md="8">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="BIC"
-            size="lg"
-            id="form1"
-            type="text"
-            value={employee.bankDetails.bic}
-            onChange={(e) => {
-              updateModel(e, "bic");
+              updateModel(e, "cellPhone");
             }}
           />
         </MDBCol>

@@ -1,8 +1,8 @@
 import { MDBRow, MDBCol, MDBInput } from "mdb-react-ui-kit";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
-export default function EmployeeEquipment() {
+export default function Development() {
   const { employee, updateEmployee } = useContext(EmployeeContext);
 
   const updateModel = (
@@ -11,8 +11,8 @@ export default function EmployeeEquipment() {
   ) => {
     updateEmployee({
       ...employee,
-      employeeEquipment: {
-        ...employee.employeeEquipment,
+      development: {
+        ...employee.development,
         [property]: e.target.value,
       },
     });
@@ -26,29 +26,16 @@ export default function EmployeeEquipment() {
       }}
     >
       <MDBRow>
-        <MDBCol md="8">
+        <MDBCol md="6">
           <MDBInput
             wrapperClass="mb-4"
-            label="Equipment Notebook"
+            label="Training"
             size="lg"
             id="form1"
             type="text"
-            value={employee.employeeEquipment.notebook}
+            value={employee.development.training}
             onChange={(e) => {
-              updateModel(e, "notebook");
-            }}
-          />
-        </MDBCol>
-        <MDBCol md="8">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Equipment Cellphone (optional)"
-            size="lg"
-            id="form1"
-            type="text"
-            value={employee.employeeEquipment.cellPhone}
-            onChange={(e) => {
-              updateModel(e, "cellPhone");
+              updateModel(e, "training");
             }}
           />
         </MDBCol>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
 interface Props {
   backToLoginFn: Function;

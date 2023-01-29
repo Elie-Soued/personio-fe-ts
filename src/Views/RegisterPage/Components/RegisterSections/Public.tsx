@@ -1,6 +1,6 @@
 import { MDBRow, MDBCol, MDBInput, MDBRadio } from "mdb-react-ui-kit";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
 export default function PublicProfile() {
   const { employee, updateEmployee } = useContext(EmployeeContext);

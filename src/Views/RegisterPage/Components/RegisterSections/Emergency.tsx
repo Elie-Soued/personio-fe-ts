@@ -1,8 +1,8 @@
 import { MDBRow, MDBCol, MDBInput } from "mdb-react-ui-kit";
 import { useContext } from "react";
-import { EmployeeContext } from "../EmployeeContext";
+import { EmployeeContext } from "../../EmployeeContext";
 
-export default function Development() {
+export default function EmergencyContact() {
   const { employee, updateEmployee } = useContext(EmployeeContext);
 
   const updateModel = (
@@ -11,8 +11,8 @@ export default function Development() {
   ) => {
     updateEmployee({
       ...employee,
-      development: {
-        ...employee.development,
+      emergencyContact: {
+        ...employee.emergencyContact,
         [property]: e.target.value,
       },
     });
@@ -25,17 +25,17 @@ export default function Development() {
         height: "80%",
       }}
     >
-      <MDBRow>
-        <MDBCol md="6">
+      <MDBRow style={{}}>
+        <MDBCol md="8">
           <MDBInput
             wrapperClass="mb-4"
-            label="Training"
+            label="Emergency Contact"
             size="lg"
             id="form1"
             type="text"
-            value={employee.development.training}
+            value={employee.emergencyContact.emergencyContact}
             onChange={(e) => {
-              updateModel(e, "training");
+              updateModel(e, "emergencyContact");
             }}
           />
         </MDBCol>
