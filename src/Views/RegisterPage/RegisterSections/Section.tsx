@@ -1,14 +1,12 @@
-import { useContext } from "react";
-import { EmployeeContext } from "./RegisterPage";
 import { MDBContainer, MDBRow, MDBCard, MDBCol } from "mdb-react-ui-kit";
-import PublicProfile from "./RegisterSections/Public";
-import { HrInformation } from "./RegisterSections/HrInformation";
-import { PersonalData } from "./RegisterSections/Personal";
-import { PayrollInformation } from "./RegisterSections/Payroll";
-import { BankDetails } from "./RegisterSections/Bank";
-import { EmergencyContact } from "./RegisterSections/Emergency";
-import { EmployeeEquipment } from "./RegisterSections/Employee";
-import { Development } from "./RegisterSections/Development";
+import PublicProfile from "./Public";
+import { HrInformation } from "./HrInformation";
+import { PersonalData } from "./Personal";
+import { PayrollInformation } from "./Payroll";
+import { BankDetails } from "./Bank";
+import { EmergencyContact } from "./Emergency";
+import { EmployeeEquipment } from "./Employee";
+import { Development } from "./Development";
 
 interface ISection {
   name: string;
@@ -16,10 +14,6 @@ interface ISection {
 }
 
 export default function Section({ name }: ISection) {
-  const context = useContext(EmployeeContext);
-
-  console.log("context in Section :>> ", context);
-
   return (
     <MDBContainer
       fluid
