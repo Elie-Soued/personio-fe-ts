@@ -1,13 +1,13 @@
 import { createContext } from "react";
-import { employeeProfileInterface } from "./Interface/IEmployeeProfile";
+import { IEmployeeProfile } from "./Interface/IEmployeeProfile";
 import { employeeProfileBlank } from "./Constants/Constants";
 
 type EmployeeProfileContext = {
-  employee: employeeProfileInterface;
-  updateEmployee: (newEmployee: employeeProfileInterface) => void;
+  employee: IEmployeeProfile;
+  updateEmployee: (newEmployee: IEmployeeProfile) => void;
 };
 
 export const EmployeeContext = createContext<EmployeeProfileContext>({
   employee: employeeProfileBlank,
-  updateEmployee: (newEmployee: employeeProfileInterface) => {},
+  updateEmployee: (newEmployee: IEmployeeProfile) => {},
 });

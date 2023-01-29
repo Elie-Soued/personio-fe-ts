@@ -1,4 +1,4 @@
-export type employeeProfileInterface = {
+export type IEmployeeProfile = {
   public: {
     firstName: string;
     lastName: string;

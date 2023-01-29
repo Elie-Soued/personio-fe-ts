@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { MDBContainer } from "mdb-react-ui-kit";
 
-import { employeeProfileInterface } from "./Interface/IEmployeeProfile";
+import { IEmployeeProfile } from "./Interface/IEmployeeProfile";
 import { employeeProfileBlank, sections } from "./Constants/Constants";
 import { EmployeeContext } from "./EmployeeContext";
 
@@ -17,7 +17,7 @@ export default function RegisterPage() {
   const [index, setIndex] = useState(0);
   const [activeSection, setActiveSection] = useState(sections[index]);
   const [employee, setEmployee] =
-    useState<employeeProfileInterface>(employeeProfileBlank);
+    useState<IEmployeeProfile>(employeeProfileBlank);
 
   const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ export default function RegisterPage() {
     };
   }, [index, goToNextPage, goToPreviousPage]);
 
-  const updateEmployee = (newEmployee: employeeProfileInterface) => {
+  const updateEmployee = (newEmployee: IEmployeeProfile) => {
     setEmployee(newEmployee);
   };
   return (
