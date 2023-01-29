@@ -1,29 +1,23 @@
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { MDBContainer } from "mdb-react-ui-kit";
+
+import { employeeProfileInterface } from "./Interface/IEmployeeProfile";
+import { employeeProfileBlank, sections } from "./Constants/Constants";
+import { EmployeeContext } from "./EmployeeContext";
+
+import Section from "./RegisterSections/Section";
+import NagigationBtns from "./Buttons/NavigationBtn";
+import FooterBtns from "./Buttons/FooterBtns";
+
 import undersurface from "../../images/undersurface.jpg";
 import king from "../../images/king.jpg";
-import Section from "./Section";
-import { MDBContainer } from "mdb-react-ui-kit";
-import NagigationBtns from "./NavigationBtn";
-import FooterBtns from "./FooterBtns";
-import { useNavigate } from "react-router-dom";
-import { employee } from "./Employee";
-
-const sections = [
-  "Public Profile",
-  "Hr Information",
-  "Personal Data",
-  "Payroll Information",
-  "Bank Details",
-  "Emergency Contact",
-  "Employee Equipment",
-  "Development",
-];
-
-export const EmployeeContext = React.createContext(employee);
 
 export default function RegisterPage() {
   const [index, setIndex] = useState(0);
   const [activeSection, setActiveSection] = useState(sections[index]);
+  const [employee, setEmployee] =
+    useState<employeeProfileInterface>(employeeProfileBlank);
 
   const navigate = useNavigate();
 
@@ -63,10 +57,11 @@ export default function RegisterPage() {
     };
   }, [index, goToNextPage, goToPreviousPage]);
 
-  console.log("employee in registerPage", employee);
-
+  const updateEmployee = (newEmployee: employeeProfileInterface) => {
+    setEmployee(newEmployee);
+  };
   return (
-    <EmployeeContext.Provider value={employee}>
+    <EmployeeContext.Provider value={{ employee, updateEmployee }}>
       <div
         className="p-0"
         style={{
