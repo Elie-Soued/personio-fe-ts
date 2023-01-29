@@ -1,12 +1,12 @@
 import { MDBContainer, MDBRow, MDBCard, MDBCol } from "mdb-react-ui-kit";
 import PublicProfile from "./Public";
-import { HrInformation } from "./HrInformation";
-import { PersonalData } from "./Personal";
-import { PayrollInformation } from "./Payroll";
-import { BankDetails } from "./Bank";
-import { EmergencyContact } from "./Emergency";
-import { EmployeeEquipment } from "./Employee";
-import { Development } from "./Development";
+import HrInformation from "./HrInformation";
+import PersonalData from "./Personal";
+import PayrollInformation from "./Payroll";
+import BankDetails from "./Bank";
+import EmergencyContact from "./Emergency";
+import EmployeeEquipment from "./Employee";
+import Development from "./Development";
 
 interface ISection {
   name: string;
