@@ -4,10 +4,10 @@ import { employeeProfileBlank } from "./Constants/Constants";
 
 type EmployeeProfileContext = {
   employee: IEmployeeProfile;
-  updateEmployee: (newEmployee: IEmployeeProfile) => void;
+  updateEmployee: (employeeUpdated: IEmployeeProfile) => void;
 };
 
 export const EmployeeContext = createContext<EmployeeProfileContext>({
   employee: employeeProfileBlank,
-  updateEmployee: (newEmployee: IEmployeeProfile) => {},
+  updateEmployee: (employeeUpdated: IEmployeeProfile) => {},
 });

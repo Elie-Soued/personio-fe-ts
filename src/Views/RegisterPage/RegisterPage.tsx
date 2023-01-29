@@ -57,8 +57,8 @@ export default function RegisterPage() {
     };
   }, [index, goToNextPage, goToPreviousPage]);
 
-  const updateEmployee = (newEmployee: IEmployeeProfile) => {
-    setEmployee(newEmployee);
+  const updateEmployee = (employeeUpdated: IEmployeeProfile) => {
+    setEmployee(employeeUpdated);
   };
   return (
     <EmployeeContext.Provider value={{ employee, updateEmployee }}>
