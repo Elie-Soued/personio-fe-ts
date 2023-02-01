@@ -82,3 +82,48 @@ export const employeeProfileBlank = {
     training: "",
   },
 };
+
+export const team = [
+  "Test Automation",
+  "Backend",
+  "Frontend",
+  "BIZ",
+  "OPS",
+  "HR",
+  "Management",
+  "PAM",
+  "Finance",
+  "Content & Communication",
+  "Test Experts",
+  "empty",
+];
+
+export const department = [
+  "Delivery",
+  "HR",
+  "Management",
+  "Platform",
+  "Sales",
+  "Finance",
+  "OPS",
+  "empty",
+];
+
+export const office = [
+  "Würzburg(Germany)",
+  "Accra (Ghana)",
+  "Sagamu (Nigeria)",
+  "Yaounde(Cameroun)",
+  "Cologne (Germany)",
+  "Lagos(Nigeria)",
+  "Munich(Germany)",
+  "Khartoum (Sudan)",
+  "Remote",
+  "Istantbul(Turkey)",
+  "Berlin (Germany)",
+  "Frankfurt (Germany)",
+  "Ahlden (Germany)",
+  "Nürnberg (Germany)",
+  "Beirut (Lebanon)",
+  "Stutgart (Germany)",
+];
