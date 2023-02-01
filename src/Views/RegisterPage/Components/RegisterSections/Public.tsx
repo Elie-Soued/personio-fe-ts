@@ -1,14 +1,12 @@
 import { MDBRow, MDBCol, MDBInput, MDBRadio } from "mdb-react-ui-kit";
 import { useContext } from "react";
 import { EmployeeContext } from "../../EmployeeContext";
+import { team, department, office } from "../../Constants/Constants";
 
 export default function PublicProfile() {
   const { employee, updateEmployee } = useContext(EmployeeContext);
 
-  const updateModel = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    property: string
-  ) => {
+  const updateModel = (e: any, property: string) => {
     updateEmployee({
       ...employee,
       public: {
@@ -59,27 +57,53 @@ export default function PublicProfile() {
       <MDBRow>
         <MDBCol md="6" className="mb-4">
           <h6 className="fw-bold">Gender: </h6>
-          <MDBRadio
-            name="inlineRadio"
-            id="inlineRadio1"
-            value="option1"
-            label="Female"
-            inline
-          />
-          <MDBRadio
-            name="inlineRadio"
-            id="inlineRadio2"
-            value="option2"
-            label="Male"
-            inline
-          />
-          <MDBRadio
-            name="inlineRadio"
-            id="inlineRadio3"
-            value="option3"
-            label="Other"
-            inline
-          />
+          <div className="d-flex flex-row  justify-content-around">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                value="Male"
+                name="gender"
+                id="male"
+                onChange={(e) => {
+                  updateModel(e, "gender");
+                }}
+              />{" "}
+              <label className="form-check-label" htmlFor="male">
+                Male
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                value="Female"
+                name="gender"
+                id="female"
+                onChange={(e) => {
+                  updateModel(e, "gender");
+                }}
+              />{" "}
+              <label className="form-check-label" htmlFor="female">
+                Female
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                value="Other"
+                name="gender"
+                id="Other"
+                onChange={(e) => {
+                  updateModel(e, "gender");
+                }}
+              />{" "}
+              <label className="form-check-label" htmlFor="other">
+                Other
+              </label>
+            </div>
+          </div>
         </MDBCol>
         <MDBCol md="6">
           <MDBInput
@@ -112,33 +136,47 @@ export default function PublicProfile() {
         </MDBCol>
 
         <MDBCol md="6">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Office"
-            size="lg"
-            id="form5"
-            type="rel"
+          <select
+            className="form-select"
+            aria-label="Default select example"
             value={employee.public.office}
             onChange={(e) => {
               updateModel(e, "office");
             }}
-          />
+            style={{
+              height: "48px",
+            }}
+          >
+            <option selected>Office</option>
+
+            {office.map((o, index) => (
+              <option value={o} key={index}>
+                {o}
+              </option>
+            ))}
+          </select>
         </MDBCol>
       </MDBRow>
 
       <MDBRow>
         <MDBCol md="6">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Department"
-            size="lg"
-            id="form3"
-            type="text"
+          <select
+            className="form-select"
+            aria-label="Default select example"
             value={employee.public.department}
             onChange={(e) => {
               updateModel(e, "department");
             }}
-          />
+            style={{
+              height: "48px",
+            }}
+          >
+            <option selected>Department</option>
+
+            {department.map((d) => (
+              <option value={d}>{d}</option>
+            ))}
+          </select>
         </MDBCol>
 
         <MDBCol md="6">
@@ -158,17 +196,23 @@ export default function PublicProfile() {
 
       <MDBRow>
         <MDBCol md="6">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Team"
-            size="lg"
-            id="form3"
-            type="text"
+          <select
+            className="form-select"
+            aria-label="Default select example"
             value={employee.public.team}
             onChange={(e) => {
               updateModel(e, "team");
             }}
-          />
+            style={{
+              height: "48px",
+            }}
+          >
+            <option selected>Team</option>
+
+            {team.map((t) => (
+              <option value={t}>{t}</option>
+            ))}
+          </select>
         </MDBCol>
 
         <MDBCol md="6">
