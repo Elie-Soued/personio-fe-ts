@@ -10,24 +10,28 @@ interface Props {
 export default function FooterBtns({ backToLoginFn }: Props) {
     const [progressBar, setProgressBar] = useState(0);
 
-    const updateProgressBar = () => {
+    const { employee } = useContext(EmployeeContext);
+
+    const calculateProgressBar = () => {
         const notEmpty = (element: string) => element !== '';
+
+        let progress = 0;
         Object.values(employee).forEach((section) => {
             if (Object.values(section).every(notEmpty)) {
-                setProgressBar(progressBar + 12.5);
+                progress += 12.5;
             }
         });
+
+        setProgressBar(progress);
     };
 
-    const { employee } = useContext(EmployeeContext);
+    useEffect(() => {
+        calculateProgressBar();
+    }, [employee]);
 
     const showContext = () => {
         console.log(employee, 'employee in footer');
     };
-
-    useEffect(() => {
-        updateProgressBar();
-    }, [employee]);
 
     return (
         <div className=' d-flex flex-column justify-content-around  pt-1 mb-5 pb-1 col-12 h-25'>
@@ -52,7 +56,7 @@ export default function FooterBtns({ backToLoginFn }: Props) {
                     Go Back to Log in
                 </button>
                 <button
-                    className='btn btn-secondary btn-block fa-lg  mb-3  w-10'
+                    className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 ${progressBar === 100 ? '' : 'disabled'}`}
                     type='button'
                     onClick={() => {
                         showContext();
