@@ -1,45 +1,57 @@
-import { MDBRow, MDBCol, MDBInput } from "mdb-react-ui-kit";
-import { useContext } from "react";
-import { EmployeeContext } from "../../EmployeeContext";
+import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
+import { useContext } from 'react';
+import { EmployeeContext } from '../../EmployeeContext';
 
 export default function EmergencyContact() {
-  const { employee, updateEmployee } = useContext(EmployeeContext);
+    const { employee, updateEmployee } = useContext(EmployeeContext);
 
-  const updateModel = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    property: string
-  ) => {
-    updateEmployee({
-      ...employee,
-      emergencyContact: {
-        ...employee.emergencyContact,
-        [property]: e.target.value,
-      },
-    });
-  };
+    const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
+        updateEmployee({
+            ...employee,
+            emergencyContact: {
+                ...employee.emergencyContact,
+                [property]: e.target.value,
+            },
+        });
+    };
 
-  return (
-    <div
-      className="flex-column d-flex justify-content-between w-100"
-      style={{
-        height: "80%",
-      }}
-    >
-      <MDBRow style={{}}>
-        <MDBCol md="8">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Emergency Contact"
-            size="lg"
-            id="form1"
-            type="text"
-            value={employee.emergencyContact.emergencyContact}
-            onChange={(e) => {
-              updateModel(e, "emergencyContact");
+    return (
+        <div
+            className='flex-column d-flex justify-content-between w-100'
+            style={{
+                height: '80%',
             }}
-          />
-        </MDBCol>
-      </MDBRow>
-    </div>
-  );
+        >
+            <MDBRow>
+                <MDBCol md='8'>
+                    <MDBInput
+                        wrapperClass='mb-4'
+                        label='Name'
+                        size='lg'
+                        id='form1'
+                        type='text'
+                        value={employee.emergencyContact.name}
+                        onChange={(e) => {
+                            updateModel(e, 'name');
+                        }}
+                    />
+                </MDBCol>
+            </MDBRow>
+            <MDBRow>
+                <MDBCol md='8'>
+                    <MDBInput
+                        wrapperClass='mb-4'
+                        label='Phone Number'
+                        size='lg'
+                        id='form1'
+                        type='text'
+                        value={employee.emergencyContact.phoneNumber}
+                        onChange={(e) => {
+                            updateModel(e, 'phoneNumber');
+                        }}
+                    />
+                </MDBCol>
+            </MDBRow>
+        </div>
+    );
 }
