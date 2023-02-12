@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EmployeeContext } from '../../EmployeeContext';
+import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface Props {
     backToLoginFn: Function;
@@ -51,25 +53,31 @@ export default function FooterBtns({ backToLoginFn }: Props) {
             </div>
 
             <div className='d-flex justify-content-around align-items-end p-1  '>
-                <button
-                    className='btn btn-primary btn-block fa-lg  mb-3 active w-10'
-                    type='button'
-                    onClick={() => {
-                        backToLoginFn();
-                    }}
-                >
-                    Go Back to Log in
-                </button>
-                <button
-                    className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 `}
-                    type='button'
-                    onClick={() => {
-                        showContext();
-                        //goToDashBoard();
-                    }}
-                >
-                    Create Profile
-                </button>
+                <div className='d-flex flex-column'>
+                    <button
+                        className='btn btn-primary btn-block fa-lg  mb-3 active w-10'
+                        type='button'
+                        onClick={() => {
+                            backToLoginFn();
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faHandPointLeft} size='lg' />
+                    </button>
+                    <span>Back to Login</span>
+                </div>
+                <div className='d-flex flex-column'>
+                    <button
+                        className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 `}
+                        type='button'
+                        onClick={() => {
+                            showContext();
+                            //goToDashBoard();
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faUserPlus} size='lg' />
+                    </button>
+                    <span>Create profile</span>
+                </div>
             </div>
         </div>
     );
