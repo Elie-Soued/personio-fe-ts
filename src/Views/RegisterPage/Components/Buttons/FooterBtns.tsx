@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext, useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { EmployeeContext } from '../../EmployeeContext';
 
 interface Props {
@@ -11,6 +11,11 @@ export default function FooterBtns({ backToLoginFn }: Props) {
     const [progressBar, setProgressBar] = useState(0);
 
     const { employee } = useContext(EmployeeContext);
+    const navigate = useNavigate();
+
+    const goToDashBoard = () => {
+        navigate('/dashboard');
+    };
 
     const calculateProgressBar = () => {
         const notEmpty = (element: string) => element !== '';
@@ -56,10 +61,11 @@ export default function FooterBtns({ backToLoginFn }: Props) {
                     Go Back to Log in
                 </button>
                 <button
-                    className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 ${progressBar === 100 ? '' : 'disabled'}`}
+                    className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 `}
                     type='button'
                     onClick={() => {
                         showContext();
+                        //goToDashBoard();
                     }}
                 >
                     Create Profile

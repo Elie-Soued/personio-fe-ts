@@ -43,7 +43,7 @@ export default function NagigationBtns({ nextFn, prevFn, section }: Props) {
                     {section === 'Development'
                         ? `Go to the previous sections ${`${index} / 8`} `
                         : section === `Public Profile`
-                        ? `Go to the next sections ${`${index} / 8`}`
+                        ? `Fill up all sections ${`${index} / 8`}`
                         : `${`${index} / 8`}`}
                 </span>
             </div>

@@ -33,6 +33,7 @@ export default function HrInformation() {
                         }}
                         style={{
                             height: '48px',
+                            fontSize: '1.2rem',
                         }}
                     >
                         <option selected>Status</option>

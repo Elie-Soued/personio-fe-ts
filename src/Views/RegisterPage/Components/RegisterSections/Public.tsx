@@ -1,7 +1,7 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
-import { team, department, office } from '../../Constants/Constants';
+import { team, department, office, positions } from '../../Constants/Constants';
 
 export default function PublicProfile() {
     const { employee, updateEmployee } = useContext(EmployeeContext);
@@ -65,10 +65,11 @@ export default function PublicProfile() {
                                 value='Male'
                                 name='gender'
                                 id='male'
+                                checked={employee.public.gender === 'Male'}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
-                            />{' '}
+                            />
                             <label className='form-check-label' htmlFor='male'>
                                 Male
                             </label>
@@ -80,10 +81,11 @@ export default function PublicProfile() {
                                 value='Female'
                                 name='gender'
                                 id='female'
+                                checked={employee.public.gender === 'Female'}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
-                            />{' '}
+                            />
                             <label className='form-check-label' htmlFor='female'>
                                 Female
                             </label>
@@ -95,10 +97,11 @@ export default function PublicProfile() {
                                 value='Other'
                                 name='gender'
                                 id='Other'
+                                checked={employee.public.gender === 'Other'}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
-                            />{' '}
+                            />
                             <label className='form-check-label' htmlFor='other'>
                                 Other
                             </label>
@@ -145,6 +148,7 @@ export default function PublicProfile() {
                         }}
                         style={{
                             height: '48px',
+                            fontSize: '1.2rem',
                         }}
                     >
                         <option selected>Office</option>
@@ -158,7 +162,7 @@ export default function PublicProfile() {
                 </MDBCol>
             </MDBRow>
 
-            <MDBRow>
+            <MDBRow style={{ minHeight: '80px' }}>
                 <MDBCol md='6'>
                     <select
                         className='form-select'
@@ -169,6 +173,7 @@ export default function PublicProfile() {
                         }}
                         style={{
                             height: '48px',
+                            fontSize: '1.2rem',
                         }}
                     >
                         <option selected>Department</option>
@@ -180,17 +185,24 @@ export default function PublicProfile() {
                 </MDBCol>
 
                 <MDBCol md='6'>
-                    <MDBInput
-                        wrapperClass='mb-4'
-                        label='Position'
-                        size='lg'
-                        id='form5'
-                        type='rel'
+                    <select
+                        className='form-select'
+                        aria-label='Default select example'
                         value={employee.public.position}
                         onChange={(e) => {
                             updateModel(e, 'position');
                         }}
-                    />
+                        style={{
+                            height: '48px',
+                            fontSize: '1.2rem',
+                        }}
+                    >
+                        <option selected>Position</option>
+
+                        {positions.map((d) => (
+                            <option value={d}>{d}</option>
+                        ))}
+                    </select>
                 </MDBCol>
             </MDBRow>
 
@@ -205,6 +217,7 @@ export default function PublicProfile() {
                         }}
                         style={{
                             height: '48px',
+                            fontSize: '1.2rem',
                         }}
                     >
                         <option selected>Team</option>
