@@ -79,7 +79,12 @@ export default function RegisterPage() {
                         <div className='rounded-top col-lg-6 d-flex align-items-center gradient-custom-2'>
                             <div className='d-flex flex-column  align-items-center gradient-custom-2 h-100'>
                                 <img className='w-100' src={king3} style={{ borderRadius: '5px' }} alt='King'></img>
-                                <FooterBtns backToLoginFn={backToLogin}></FooterBtns>
+                                <FooterBtns
+                                    backToLoginFn={backToLogin}
+                                    clearContext={() => {
+                                        setEmployee(employeeProfileBlank);
+                                    }}
+                                ></FooterBtns>
                             </div>
                         </div>
                     </div>
