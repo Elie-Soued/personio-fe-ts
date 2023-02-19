@@ -13,9 +13,11 @@ export const employeeProfileBlank = {
     public: {
         firstName: '',
         lastName: '',
+        userName: '',
+        password: '',
         gender: '',
         email: '',
-        companyPhoneNumb: '',
+        companyPhoneNumber: '',
         office: '',
         department: '',
         position: '',
@@ -70,8 +72,8 @@ export const employeeProfileBlank = {
     },
 
     emergencyContact: {
-        name: '',
-        phoneNumber: '',
+        emergencyName: '',
+        emergencyNumber: '',
     },
 
     employeeEquipment: {

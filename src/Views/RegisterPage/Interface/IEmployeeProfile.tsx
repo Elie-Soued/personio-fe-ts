@@ -2,9 +2,11 @@ export type IEmployeeProfile = {
     public: {
         firstName: string;
         lastName: string;
+        userName: string;
+        password: string;
         gender: string;
         email: string;
-        companyPhoneNumb: string;
+        companyPhoneNumber: string;
         office: string;
         department: string;
         position: string;
@@ -59,8 +61,8 @@ export type IEmployeeProfile = {
     };
 
     emergencyContact: {
-        name: string;
-        phoneNumber: string;
+        emergencyName: string;
+        emergencyNumber: string;
     };
 
     employeeEquipment: {
