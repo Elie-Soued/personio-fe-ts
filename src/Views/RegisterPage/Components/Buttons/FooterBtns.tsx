@@ -4,13 +4,16 @@ import { EmployeeContext } from '../../EmployeeContext';
 import { doRequest, URLRegister } from '../../../../Utils/ServiceUtils';
 import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SuccessModal from '../Modal';
 
 interface Props {
     backToLoginFn: Function;
+    clearContext: Function;
 }
 
-export default function FooterBtns({ backToLoginFn }: Props) {
+export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
     const [progressBar, setProgressBar] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
     const { employee } = useContext(EmployeeContext);
     const navigate = useNavigate();
@@ -32,6 +35,9 @@ export default function FooterBtns({ backToLoginFn }: Props) {
 
         try {
             const response: any = await doRequest('post', URLRegister, employee);
+            if (response) {
+                setShowModal(true);
+            }
         } catch (e) {
             console.log(e);
         }
@@ -60,6 +66,14 @@ export default function FooterBtns({ backToLoginFn }: Props) {
 
     return (
         <div className=' d-flex flex-column justify-content-around  pt-1 mb-5 pb-1 col-12 h-25'>
+            <SuccessModal
+                show={showModal}
+                handleClose={() => {
+                    setShowModal(false);
+                    clearContext();
+                }}
+                navigateDashboard={goToDashBoard}
+            ></SuccessModal>
             <div className='d-flex flex-column align-items-center '>
                 <h4>Profile completion</h4>
 
@@ -90,7 +104,6 @@ export default function FooterBtns({ backToLoginFn }: Props) {
                         onClick={() => {
                             register();
                             showContext();
-                            //goToDashBoard();
                         }}
                     >
                         <FontAwesomeIcon icon={faUserPlus} size='lg' />
