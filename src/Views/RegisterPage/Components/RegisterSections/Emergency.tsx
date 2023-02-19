@@ -30,9 +30,9 @@ export default function EmergencyContact() {
                         size='lg'
                         id='form1'
                         type='text'
-                        value={employee.emergencyContact.name}
+                        value={employee.emergencyContact.emergencyName}
                         onChange={(e) => {
-                            updateModel(e, 'name');
+                            updateModel(e, 'emergencyName');
                         }}
                     />
                 </MDBCol>
@@ -45,9 +45,9 @@ export default function EmergencyContact() {
                         size='lg'
                         id='form1'
                         type='text'
-                        value={employee.emergencyContact.phoneNumber}
+                        value={employee.emergencyContact.emergencyNumber}
                         onChange={(e) => {
-                            updateModel(e, 'phoneNumber');
+                            updateModel(e, 'emergencyNumber');
                         }}
                     />
                 </MDBCol>
