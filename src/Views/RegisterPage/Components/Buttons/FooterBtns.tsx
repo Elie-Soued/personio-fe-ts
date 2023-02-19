@@ -1,7 +1,7 @@
-import React from 'react';
-import { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EmployeeContext } from '../../EmployeeContext';
+import { doRequest, URLRegister } from '../../../../Utils/ServiceUtils';
 import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -17,6 +17,24 @@ export default function FooterBtns({ backToLoginFn }: Props) {
 
     const goToDashBoard = () => {
         navigate('/dashboard');
+    };
+
+    const generatePassword = () => {
+        const min = 10000;
+        const max = 99999;
+        const password = Math.floor(Math.random() * (max - min + 1)) + min;
+        return password.toString();
+    };
+
+    const register = async () => {
+        employee.public.userName = employee.public.firstName + employee.public.lastName;
+        employee.public.password = generatePassword();
+
+        try {
+            const response: any = await doRequest('post', URLRegister, employee);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     const calculateProgressBar = () => {
@@ -70,6 +88,7 @@ export default function FooterBtns({ backToLoginFn }: Props) {
                         className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 `}
                         type='button'
                         onClick={() => {
+                            register();
                             showContext();
                             //goToDashBoard();
                         }}
