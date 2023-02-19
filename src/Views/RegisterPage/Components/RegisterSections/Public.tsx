@@ -131,9 +131,9 @@ export default function PublicProfile() {
                         size='lg'
                         id='form3'
                         type='text'
-                        value={employee.public.companyPhoneNumb}
+                        value={employee.public.companyPhoneNumber}
                         onChange={(e) => {
-                            updateModel(e, 'companyPhoneNumb');
+                            updateModel(e, 'companyPhoneNumber');
                         }}
                     />
                 </MDBCol>
