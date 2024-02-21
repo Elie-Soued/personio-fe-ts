@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { IEmployeeProfile } from './Interface/IEmployeeProfile';
 import { employeeProfileBlank } from './Constants/Constants';
 
-console.log('employeeProfileBlank :>> ', employeeProfileBlank);
+
 
 type EmployeeProfileContext = {
     employee: IEmployeeProfile;
