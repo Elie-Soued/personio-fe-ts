@@ -19,7 +19,8 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
     const navigate = useNavigate();
 
     const goToDashBoard = () => {
-        navigate('/dashboard');
+        const { userName } = employee.public;
+        navigate(`/dashboard/${userName}`);
     };
 
     const generatePassword = () => {
@@ -65,7 +66,7 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
     };
 
     return (
-        <div className=' d-flex flex-column justify-content-around  pt-1 mb-5 pb-1 col-12 h-25'>
+        <div className=" d-flex flex-column justify-content-around  pt-1 mb-5 pb-1 col-12 h-25">
             <SuccessModal
                 show={showModal}
                 handleClose={() => {
@@ -74,39 +75,39 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
                 }}
                 navigateDashboard={goToDashBoard}
             ></SuccessModal>
-            <div className='d-flex flex-column align-items-center '>
+            <div className="d-flex flex-column align-items-center ">
                 <h4>Profile completion</h4>
 
-                <div className='col-10 progress m-2'>
-                    <div className='progress-bar' style={{ width: `${progressBar}%` }}>
+                <div className="col-10 progress m-2">
+                    <div className="progress-bar" style={{ width: `${progressBar}%` }}>
                         {progressBar}%
                     </div>
                 </div>
             </div>
 
-            <div className='d-flex justify-content-around align-items-end p-1  '>
-                <div className='d-flex flex-column'>
+            <div className="d-flex justify-content-around align-items-end p-1  ">
+                <div className="d-flex flex-column">
                     <button
-                        className='btn btn-primary btn-block fa-lg  mb-3 active w-10'
-                        type='button'
+                        className="btn btn-primary btn-block fa-lg  mb-3 active w-10"
+                        type="button"
                         onClick={() => {
                             backToLoginFn();
                         }}
                     >
-                        <FontAwesomeIcon icon={faHandPointLeft} size='lg' />
+                        <FontAwesomeIcon icon={faHandPointLeft} size="lg" />
                     </button>
                     <span>Back to Login</span>
                 </div>
-                <div className='d-flex flex-column'>
+                <div className="d-flex flex-column">
                     <button
                         className={`btn btn-secondary btn-block fa-lg  mb-3  w-10 `}
-                        type='button'
+                        type="button"
                         onClick={() => {
                             register();
                             showContext();
                         }}
                     >
-                        <FontAwesomeIcon icon={faUserPlus} size='lg' />
+                        <FontAwesomeIcon icon={faUserPlus} size="lg" />
                     </button>
                     <span>Create profile</span>
                 </div>
