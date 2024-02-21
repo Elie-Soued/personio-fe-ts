@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function Dashboard() {
+    let { username } = useParams();
     const navigate = useNavigate();
     const backToRegister = () => {
         navigate('/register');
@@ -9,7 +11,7 @@ export default function Dashboard() {
 
     return (
         <div>
-            <h1>Hello ouf this is the dashboard</h1>
+            <h1>Hello {username} this is the dashboard</h1>
             <button
                 onClick={() => {
                     backToRegister();
