@@ -48,7 +48,7 @@ export default function RegisterPage() {
     return (
         <EmployeeContext.Provider value={{ employee, updateEmployee }}>
             <div
-                className='p-0'
+                className="p-0"
                 style={{
                     backgroundColor: '#eee',
                     border: '4px solid white',
@@ -56,16 +56,16 @@ export default function RegisterPage() {
                 }}
             >
                 <MDBContainer
-                    className='my-0 gradient-form h-auto'
+                    className="my-0 gradient-form h-auto"
                     style={{
                         backgroundColor: 'white',
                         width: 'auto',
                         padding: 0,
                     }}
                 >
-                    <div className='row g-0'>
-                        <div className='d-flex align-items-center col-lg-6 '>
-                            <div className=' w-100'>
+                    <div className="row g-0">
+                        <div className="d-flex align-items-center col-lg-6 ">
+                            <div className=" w-100">
                                 {renderActiveSection(activeSection)}
 
                                 <NagigationBtns
@@ -76,9 +76,9 @@ export default function RegisterPage() {
                             </div>
                         </div>
 
-                        <div className='rounded-top col-lg-6 d-flex align-items-center gradient-custom-2'>
-                            <div className='d-flex flex-column  align-items-center gradient-custom-2 h-100'>
-                                <img className='w-100' src={king3} style={{ borderRadius: '5px' }} alt='King'></img>
+                        <div className="rounded-top col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div className="d-flex flex-column  align-items-center gradient-custom-2 h-100">
+                                <img className="w-100" src={king3} style={{ borderRadius: '5px' }} alt="King"></img>
                                 <FooterBtns
                                     backToLoginFn={backToLogin}
                                     clearContext={() => {
@@ -88,13 +88,13 @@ export default function RegisterPage() {
                             </div>
                         </div>
                     </div>
-                    <div className='col-xl-12'>
-                        <div className='col-xl-12'>
+                    <div className="col-xl-12">
+                        <div className="col-xl-12">
                             <img
-                                className='w-100'
+                                className="w-100"
                                 src={undersurface}
                                 style={{ borderRadius: '5px' }}
-                                alt='footer'
+                                alt="footer"
                             ></img>
                         </div>
                     </div>
@@ -105,5 +105,5 @@ export default function RegisterPage() {
 }
 
 function renderActiveSection(activeSection: string) {
-    return <Section name={activeSection} attributes />;
+    return <Section name={activeSection} />;
 }

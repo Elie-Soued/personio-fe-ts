@@ -10,7 +10,6 @@ import Development from './Development';
 
 interface ISection {
     name: string;
-    attributes: any;
 }
 
 export default function Section({ name }: ISection) {
@@ -23,21 +22,21 @@ export default function Section({ name }: ISection) {
             }}
         >
             <MDBRow
-                className='justify-content-center align-items-center '
+                className="justify-content-center align-items-center "
                 style={{
                     height: '100%',
                 }}
             >
                 <MDBCard
-                    className='col-lg-12 p-4'
+                    className="col-lg-12 p-4"
                     style={{
                         height: '100%',
                         minHeight: '805px',
                     }}
                 >
-                    <h3 className='fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5 p-3'>{name}</h3>
+                    <h3 className="fw-bold text-center mb-4 pb-2 pb-md-0 mb-md-5 p-3">{name}</h3>
                     <div
-                        className='flex-column d-flex justify-content-between w-100'
+                        className="flex-column d-flex justify-content-between w-100"
                         style={{
                             height: '80%',
                         }}

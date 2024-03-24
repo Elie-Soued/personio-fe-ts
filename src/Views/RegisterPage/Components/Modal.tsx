@@ -2,8 +2,8 @@ import { Button, Modal } from 'react-bootstrap';
 
 interface Props {
     show: boolean;
-    handleClose: any;
-    navigateDashboard: any;
+    handleClose: () => void;
+    navigateDashboard: () => void;
 }
 
 export default function SuccessModal({ show, handleClose, navigateDashboard }: Props) {
@@ -15,10 +15,10 @@ export default function SuccessModal({ show, handleClose, navigateDashboard }: P
                 </Modal.Header>
                 <Modal.Body>A user has been created</Modal.Body>
                 <Modal.Footer>
-                    <Button variant='secondary' onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleClose}>
                         Stay on this page
                     </Button>
-                    <Button variant='primary' onClick={navigateDashboard}>
+                    <Button variant="primary" onClick={navigateDashboard}>
                         Go to Dashboard
                     </Button>
                 </Modal.Footer>

@@ -4,6 +4,7 @@ import { doRequest, URLLogin } from '../../Utils/ServiceUtils';
 import { useNavigate } from 'react-router-dom';
 import undersurface from '../../images/undersurface.jpg';
 import responsability from '../../images/responsability.jpg';
+import { AxiosResponse } from 'axios';
 import './LandingPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,15 +15,15 @@ export default function LandingPage() {
     const navigate = useNavigate();
 
     const login = async () => {
-        const response: any = await doRequest('post', URLLogin, {
+        const response: AxiosResponse | Error = await doRequest('post', URLLogin, {
             username,
             password,
         });
 
-        if (response.data.code === 404) {
-            alert(response.data.message);
-        } else if (response.data.code === 401) {
-            alert(response.data.message);
+        if (response?.data.code === 404) {
+            alert(response?.data.message);
+        } else if (response?.data.code === 401) {
+            alert(response?.data.message);
         } else {
             setTokenAndNavigate(response);
         }
@@ -32,7 +33,7 @@ export default function LandingPage() {
         navigate('/register');
     };
 
-    const setTokenAndNavigate = (response: any) => {
+    const setTokenAndNavigate = (response: AxiosResponse) => {
         const token = response?.data.accessToken;
         localStorage.setItem('token', token);
         navigate(`/dashboard/${username}`);

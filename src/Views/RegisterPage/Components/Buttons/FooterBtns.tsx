@@ -4,6 +4,7 @@ import { EmployeeContext } from '../../EmployeeContext';
 import { doRequest, URLRegister } from '../../../../Utils/ServiceUtils';
 import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AxiosResponse } from 'axios';
 import SuccessModal from '../Modal';
 
 interface Props {
@@ -20,6 +21,7 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
 
     const goToDashBoard = () => {
         const { userName } = employee.public;
+        if (localStorage.getItem('token')) localStorage.removeItem('token');
         navigate(`/dashboard/${userName}`);
     };
 
@@ -35,7 +37,7 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
         employee.public.password = generatePassword();
 
         try {
-            const response: any = await doRequest('post', URLRegister, employee);
+            const response: AxiosResponse | Error = await doRequest('post', URLRegister, employee);
             if (response) {
                 setShowModal(true);
             }

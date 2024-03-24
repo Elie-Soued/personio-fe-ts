@@ -1,11 +1,11 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
-import { useContext } from 'react';
+import { ChangeEvent, useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
 export default function HrInformation() {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
-    const updateModel = (e: any, property: string) => {
+    const updateModel = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, property: string) => {
         updateEmployee({
             ...employee,
             hrInformation: {
@@ -17,16 +17,16 @@ export default function HrInformation() {
 
     return (
         <div
-            className='flex-column d-flex justify-content-between w-100'
+            className="flex-column d-flex justify-content-between w-100"
             style={{
                 height: '80%',
             }}
         >
             <MDBRow>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <select
-                        className='form-select'
-                        aria-label='Default select example'
+                        className="form-select"
+                        aria-label="Default select example"
                         value={employee.hrInformation.status}
                         onChange={(e) => {
                             updateModel(e, 'status');
@@ -37,18 +37,18 @@ export default function HrInformation() {
                         }}
                     >
                         <option selected>Status</option>
-                        <option value='active'>Active</option>
-                        <option value='inactive'>Inactive</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
                     </select>
                 </MDBCol>
 
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Employment Type'
-                        size='lg'
-                        id='form2'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Employment Type"
+                        size="lg"
+                        id="form2"
+                        type="text"
                         value={employee.hrInformation.employmentType}
                         onChange={(e) => {
                             updateModel(e, 'employmentType');
@@ -58,26 +58,26 @@ export default function HrInformation() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='6' className='mb-4'>
+                <MDBCol md="6" className="mb-4">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Occupation Type '
-                        size='lg'
-                        id='form4'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Occupation Type "
+                        size="lg"
+                        id="form4"
+                        type="text"
                         value={employee.hrInformation.occupationType}
                         onChange={(e) => {
                             updateModel(e, 'occupationType');
                         }}
                     />
                 </MDBCol>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Supervisor'
-                        size='lg'
-                        id='form4'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Supervisor"
+                        size="lg"
+                        id="form4"
+                        type="text"
                         value={employee.hrInformation.supervisor}
                         onChange={(e) => {
                             updateModel(e, 'supervisor');
@@ -87,13 +87,13 @@ export default function HrInformation() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Hire date'
-                        size='lg'
-                        id='form3'
-                        type='date'
+                        wrapperClass="mb-4"
+                        label="Hire date"
+                        size="lg"
+                        id="form3"
+                        type="date"
                         value={employee.hrInformation.hireDate}
                         onChange={(e) => {
                             updateModel(e, 'hireDate');
@@ -101,13 +101,13 @@ export default function HrInformation() {
                     />
                 </MDBCol>
 
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Contract ends'
-                        size='lg'
-                        id='form5'
-                        type='date'
+                        wrapperClass="mb-4"
+                        label="Contract ends"
+                        size="lg"
+                        id="form5"
+                        type="date"
                         value={employee.hrInformation.contractEnd}
                         onChange={(e) => {
                             updateModel(e, 'contractEnd');
@@ -117,13 +117,13 @@ export default function HrInformation() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Length of probation'
-                        size='lg'
-                        id='form3'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Length of probation"
+                        size="lg"
+                        id="form3"
+                        type="text"
                         value={employee.hrInformation.lengthOfProbation}
                         onChange={(e) => {
                             updateModel(e, 'lengthOfProbation');
@@ -131,13 +131,13 @@ export default function HrInformation() {
                     />
                 </MDBCol>
 
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Notice period'
-                        size='lg'
-                        id='form5'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Notice period"
+                        size="lg"
+                        id="form5"
+                        type="text"
                         value={employee.hrInformation.noticePeriod}
                         onChange={(e) => {
                             updateModel(e, 'noticePeriod');
@@ -147,13 +147,13 @@ export default function HrInformation() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Weekly Hours'
-                        size='lg'
-                        id='form3'
-                        type='number'
+                        wrapperClass="mb-4"
+                        label="Weekly Hours"
+                        size="lg"
+                        id="form3"
+                        type="number"
                         value={employee.hrInformation.weeklyHours}
                         onChange={(e) => {
                             updateModel(e, 'weeklyHours');
@@ -161,13 +161,13 @@ export default function HrInformation() {
                     />
                 </MDBCol>
 
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Cost center'
-                        size='lg'
-                        id='form5'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Cost center"
+                        size="lg"
+                        id="form5"
+                        type="text"
                         value={employee.hrInformation.costCenter}
                         onChange={(e) => {
                             updateModel(e, 'costCenter');
@@ -177,26 +177,26 @@ export default function HrInformation() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Nationality'
-                        size='lg'
-                        id='form3'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="Nationality"
+                        size="lg"
+                        id="form3"
+                        type="text"
                         value={employee.hrInformation.nationality}
                         onChange={(e) => {
                             updateModel(e, 'nationality');
                         }}
                     />
                 </MDBCol>
-                <MDBCol md='6'>
+                <MDBCol md="6">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Residence permit valid until'
-                        size='lg'
-                        id='form3'
-                        type='date'
+                        wrapperClass="mb-4"
+                        label="Residence permit valid until"
+                        size="lg"
+                        id="form3"
+                        type="date"
                         value={employee.hrInformation.residentPermitValidUntil}
                         onChange={(e) => {
                             updateModel(e, 'residentPermitValidUntil');

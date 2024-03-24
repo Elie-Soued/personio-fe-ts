@@ -4,7 +4,7 @@ import DashboardNavigation from './DashboardNavigation';
 import DashboardHeaderInfo from './DashBoardHeaderInfo';
 
 interface Props {
-    userData: any;
+    userData: object;
 }
 
 export default function DashboardHeader({ userData }: Props) {
@@ -13,6 +13,9 @@ export default function DashboardHeader({ userData }: Props) {
 
     // password = 39120
     // Guillaume Clere
+
+    // password = 62366
+    //Michel Oussa
 
     return (
         <div className="d-flex flex-column h-100">

@@ -3,18 +3,21 @@ import { doRequest, URL } from '../../Utils/ServiceUtils';
 import DashboardNavbar from './Components/DashboardNavBar';
 import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
+import { AxiosResponse } from 'axios';
 
 export default function Dashboard() {
     let [userData, setUserData] = useState({});
 
     const getUserData = async () => {
-        const response: any = await doRequest('get', URL);
-        setUserData(response.data);
+        const response: AxiosResponse | Error = await doRequest('get', URL);
+        setUserData(response?.data);
     };
 
     useEffect(() => {
         getUserData();
     }, []);
+
+    console.log('userData :>> ', userData);
 
     return (
         <div
@@ -34,7 +37,7 @@ export default function Dashboard() {
                     <DashboardHeader userData={userData} />
                 </div>
                 <div className="col-12 h-75">
-                    <DashboardBody />
+                    <DashboardBody userData={userData} />
                 </div>
             </div>
         </div>

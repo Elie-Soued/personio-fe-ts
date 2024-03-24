@@ -6,12 +6,17 @@ import Absence from './DashboardBodySection/Absence';
 import Onboarding from './DashboardBodySection/Onboarding';
 import Notes from './DashboardBodySection/Notes';
 
-export default function DashboardBody() {
+interface Props {
+    userData: object;
+}
+
+export default function DashboardBody({ userData }: Props) {
     let [section, setSection] = useState('Personal Info');
 
     useEffect(() => {
-        const handleSectionChange = (event: any) => {
-            setSection(event.detail);
+        const handleSectionChange = (event: Event) => {
+            const customEvent = event as CustomEvent;
+            setSection(customEvent.detail);
         };
 
         window.addEventListener('changeSection', handleSectionChange);
