@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faEnvelope, faHouse, faMagnifyingGlass, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
-export default function Navbar() {
+export default function DashboardNavbar() {
     const sections = ['Home', 'Search', 'Inbox', 'Employees', 'Calendar'];
     const icons = [faHouse, faMagnifyingGlass, faEnvelope, faUserFriends, faCalendar];
 
