@@ -3,21 +3,28 @@ import { doRequest, URL } from '../../Utils/ServiceUtils';
 import DashboardNavbar from './Components/DashboardNavBar';
 import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
+import { useNavigate } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
 
 export default function Dashboard() {
     let [userData, setUserData] = useState({});
+    const navigate = useNavigate();
 
     const getUserData = async () => {
         const response: AxiosResponse | Error = await doRequest('get', URL);
         setUserData(response?.data);
     };
 
+    const navigateToLandingPage = () => {
+        if (!localStorage.getItem('token')) {
+            navigate('/');
+        }
+    };
+
     useEffect(() => {
         getUserData();
+        navigateToLandingPage();
     }, []);
-
-    console.log('userData :>> ', userData);
 
     return (
         <div
