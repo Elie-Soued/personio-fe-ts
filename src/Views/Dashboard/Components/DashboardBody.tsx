@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import PersonalInfo from './DashboardBodySection/PersonalInfo';
-import Salary from './DashboardBodySection/Salary';
-import Documents from './DashboardBodySection/Documents';
-import Absence from './DashboardBodySection/Absence';
-import Onboarding from './DashboardBodySection/Onboarding';
-import Notes from './DashboardBodySection/Notes';
+import PersonalInfo from './DashboardBodySection/PersonalInfo/PersonalInfo';
+import Salary from './DashboardBodySection/Salary/Salary';
+import Documents from './DashboardBodySection/Documents/Documents';
+import Absence from './DashboardBodySection/Absence/Absence';
+import Onboarding from './DashboardBodySection/Onboarding/Onboarding';
+import Notes from './DashboardBodySection/Notes/Notes';
 
 interface Props {
     userData: object;
@@ -51,5 +51,13 @@ export default function DashboardBody({ userData }: Props) {
         }
     };
 
-    return <div>{renderSection(section)}</div>;
+    return (
+        <div
+            style={{
+                height: '100%',
+            }}
+        >
+            {renderSection(section)}
+        </div>
+    );
 }
