@@ -59,12 +59,6 @@ export default function LandingPage() {
                 <div className="row g-0">
                     <div className="d-flex align-items-center col-lg-6 p-4">
                         <div className="d-flex flex-column w-100">
-                            <div className="text-center " id="title">
-                                <h4 className="mt-1 mb-5 pb-1">
-                                    <span id="my">My</span> tech11
-                                </h4>
-                            </div>
-
                             <form>
                                 {/* Email */}
                                 <div className="d-flex justify-content-center p-2">
