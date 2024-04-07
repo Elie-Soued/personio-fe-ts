@@ -49,9 +49,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form2"
                         type="text"
-                        value={employee.hrInformation.employmentType}
+                        value={employee.hrInformation.employment_type}
                         onChange={(e) => {
-                            updateModel(e, 'employmentType');
+                            updateModel(e, 'employment_type');
                         }}
                     />
                 </MDBCol>
@@ -65,9 +65,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form4"
                         type="text"
-                        value={employee.hrInformation.occupationType}
+                        value={employee.hrInformation.occupation_type}
                         onChange={(e) => {
-                            updateModel(e, 'occupationType');
+                            updateModel(e, 'occupation_type');
                         }}
                     />
                 </MDBCol>
@@ -94,9 +94,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form3"
                         type="date"
-                        value={employee.hrInformation.hireDate}
+                        value={employee.hrInformation.hire_date}
                         onChange={(e) => {
-                            updateModel(e, 'hireDate');
+                            updateModel(e, 'hire_date');
                         }}
                     />
                 </MDBCol>
@@ -108,9 +108,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form5"
                         type="date"
-                        value={employee.hrInformation.contractEnd}
+                        value={employee.hrInformation.contract_end}
                         onChange={(e) => {
-                            updateModel(e, 'contractEnd');
+                            updateModel(e, 'contract_end');
                         }}
                     />
                 </MDBCol>
@@ -124,9 +124,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form3"
                         type="text"
-                        value={employee.hrInformation.lengthOfProbation}
+                        value={employee.hrInformation.length_of_probation}
                         onChange={(e) => {
-                            updateModel(e, 'lengthOfProbation');
+                            updateModel(e, 'length_of_probation');
                         }}
                     />
                 </MDBCol>
@@ -138,9 +138,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form5"
                         type="text"
-                        value={employee.hrInformation.noticePeriod}
+                        value={employee.hrInformation.notice_period}
                         onChange={(e) => {
-                            updateModel(e, 'noticePeriod');
+                            updateModel(e, 'notice_period');
                         }}
                     />
                 </MDBCol>
@@ -154,9 +154,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form3"
                         type="number"
-                        value={employee.hrInformation.weeklyHours}
+                        value={employee.hrInformation.weekly_hours}
                         onChange={(e) => {
-                            updateModel(e, 'weeklyHours');
+                            updateModel(e, 'weekly_hours');
                         }}
                     />
                 </MDBCol>
@@ -168,9 +168,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form5"
                         type="text"
-                        value={employee.hrInformation.costCenter}
+                        value={employee.hrInformation.cost_center}
                         onChange={(e) => {
-                            updateModel(e, 'costCenter');
+                            updateModel(e, 'cost_center');
                         }}
                     />
                 </MDBCol>
@@ -197,9 +197,9 @@ export default function HrInformation() {
                         size="lg"
                         id="form3"
                         type="date"
-                        value={employee.hrInformation.residentPermitValidUntil}
+                        value={employee.hrInformation.resident_permit_valid_until}
                         onChange={(e) => {
-                            updateModel(e, 'residentPermitValidUntil');
+                            updateModel(e, 'resident_permit_valid_until');
                         }}
                     />
                 </MDBCol>

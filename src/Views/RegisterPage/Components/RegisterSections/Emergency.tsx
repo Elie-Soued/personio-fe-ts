@@ -17,37 +17,37 @@ export default function EmergencyContact() {
 
     return (
         <div
-            className='flex-column d-flex justify-content-between w-100'
+            className="flex-column d-flex justify-content-between w-100"
             style={{
                 height: '80%',
             }}
         >
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Name'
-                        size='lg'
-                        id='form1'
-                        type='text'
-                        value={employee.emergencyContact.emergencyName}
+                        wrapperClass="mb-4"
+                        label="Name"
+                        size="lg"
+                        id="form1"
+                        type="text"
+                        value={employee.emergencyContact.emergency_name}
                         onChange={(e) => {
-                            updateModel(e, 'emergencyName');
+                            updateModel(e, 'emergency_name');
                         }}
                     />
                 </MDBCol>
             </MDBRow>
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Phone Number'
-                        size='lg'
-                        id='form1'
-                        type='text'
-                        value={employee.emergencyContact.emergencyNumber}
+                        wrapperClass="mb-4"
+                        label="Phone Number"
+                        size="lg"
+                        id="form1"
+                        type="text"
+                        value={employee.emergencyContact.emergency_number}
                         onChange={(e) => {
-                            updateModel(e, 'emergencyNumber');
+                            updateModel(e, 'emergency_number');
                         }}
                     />
                 </MDBCol>

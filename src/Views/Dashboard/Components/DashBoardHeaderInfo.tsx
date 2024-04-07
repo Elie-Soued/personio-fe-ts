@@ -8,14 +8,15 @@ interface Props {
 }
 
 export default function DashboardHeaderInfo({ userData }: Props) {
-    const { username, position, team, department, office, supervisor, hiredate } = userData;
+    const { user_name, position, team, department, office } = userData.public;
+    const { supervisor, hire_date } = userData.hrInformation;
 
     return (
         <div className="d-flex flex-row col-12 h-75">
             <div className="col-2">Photo</div>
             <div style={{ border: '1px solid black' }} className="col-10">
                 <span>
-                    <h4>{username}</h4>
+                    <h4>{user_name}</h4>
                 </span>
                 <p className="d-flex flex-row  col-12">
                     <span className="d-flex flex-row">
@@ -35,7 +36,7 @@ export default function DashboardHeaderInfo({ userData }: Props) {
                 </p>
                 <p className="d-flex flex-row  col-12">
                     <span>
-                        <h6>Since {hiredate}</h6>
+                        <h6>Since {hire_date}</h6>
                     </span>
                     <span>
                         <h6>Reports to {supervisor}</h6>

@@ -20,9 +20,9 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
     const navigate = useNavigate();
 
     const goToDashBoard = () => {
-        const { userName } = employee.public;
+        const { user_name } = employee.public;
         if (localStorage.getItem('token')) localStorage.removeItem('token');
-        navigate(`/dashboard/${userName}`);
+        navigate(`/dashboard/${user_name}`);
     };
 
     const generatePassword = () => {
@@ -33,7 +33,7 @@ export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
     };
 
     const register = async () => {
-        employee.public.userName = employee.public.firstName + employee.public.lastName;
+        employee.public.user_name = employee.public.first_name + employee.public.last_name;
         employee.public.password = generatePassword();
 
         try {

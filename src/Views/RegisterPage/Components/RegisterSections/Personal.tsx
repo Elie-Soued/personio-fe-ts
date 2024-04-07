@@ -16,51 +16,51 @@ export default function PersonalData() {
     };
     return (
         <div
-            className='flex-column d-flex justify-content-between w-100'
+            className="flex-column d-flex justify-content-between w-100"
             style={{
                 height: '80%',
             }}
         >
             <MDBRow style={{}}>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Street and house number'
-                        size='lg'
-                        id='form1'
-                        type='text'
-                        value={employee.personalData.streetAndHouseNumber}
+                        wrapperClass="mb-4"
+                        label="Street and house number"
+                        size="lg"
+                        id="form1"
+                        type="text"
+                        value={employee.personalData.street_and_house_number}
                         onChange={(e) => {
-                            updateModel(e, 'streetAndHouseNumber');
+                            updateModel(e, 'street_and_house_number');
                         }}
                     />
                 </MDBCol>
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Postal code'
-                        size='lg'
-                        id='form4'
-                        type='text'
-                        value={employee.personalData.postalCode}
+                        wrapperClass="mb-4"
+                        label="Postal code"
+                        size="lg"
+                        id="form4"
+                        type="text"
+                        value={employee.personalData.postal_code}
                         onChange={(e) => {
-                            updateModel(e, 'postalCode');
+                            updateModel(e, 'postal_code');
                         }}
                     />
                 </MDBCol>
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='City'
-                        size='lg'
-                        id='form5'
-                        type='text'
+                        wrapperClass="mb-4"
+                        label="City"
+                        size="lg"
+                        id="form5"
+                        type="text"
                         value={employee.personalData.city}
                         onChange={(e) => {
                             updateModel(e, 'city');
@@ -70,32 +70,32 @@ export default function PersonalData() {
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Private email'
-                        size='lg'
-                        id='form5'
-                        type='email'
-                        value={employee.personalData.privateEmail}
+                        wrapperClass="mb-4"
+                        label="Private email"
+                        size="lg"
+                        id="form5"
+                        type="email"
+                        value={employee.personalData.private_email}
                         onChange={(e) => {
-                            updateModel(e, 'privateEmail');
+                            updateModel(e, 'private_email');
                         }}
                     />
                 </MDBCol>
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md='8'>
+                <MDBCol md="8">
                     <MDBInput
-                        wrapperClass='mb-4'
-                        label='Private Phone'
-                        size='lg'
-                        id='form5'
-                        type='text'
-                        value={employee.personalData.privatePhone}
+                        wrapperClass="mb-4"
+                        label="Private Phone"
+                        size="lg"
+                        id="form5"
+                        type="text"
+                        value={employee.personalData.private_phone}
                         onChange={(e) => {
-                            updateModel(e, 'privatePhone');
+                            updateModel(e, 'private_phone');
                         }}
                     />
                 </MDBCol>

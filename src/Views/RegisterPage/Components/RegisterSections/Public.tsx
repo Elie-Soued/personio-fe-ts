@@ -32,9 +32,9 @@ export default function PublicProfile() {
                         size="lg"
                         id="form1"
                         type="text"
-                        value={employee.public.firstName}
+                        value={employee.public.first_name}
                         onChange={(e) => {
-                            updateModel(e, 'firstName');
+                            updateModel(e, 'first_name');
                         }}
                     />
                 </MDBCol>
@@ -46,9 +46,9 @@ export default function PublicProfile() {
                         size="lg"
                         id="form2"
                         type="text"
-                        value={employee.public.lastName}
+                        value={employee.public.last_name}
                         onChange={(e) => {
-                            updateModel(e, 'lastName');
+                            updateModel(e, 'last_name');
                         }}
                     />
                 </MDBCol>
@@ -131,9 +131,9 @@ export default function PublicProfile() {
                         size="lg"
                         id="form3"
                         type="text"
-                        value={employee.public.companyPhoneNumber}
+                        value={employee.public.company_phone_number}
                         onChange={(e) => {
-                            updateModel(e, 'companyPhoneNumber');
+                            updateModel(e, 'company_phone_number');
                         }}
                     />
                 </MDBCol>
@@ -231,13 +231,13 @@ export default function PublicProfile() {
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="LinkedIn"
+                        label="Linked_in"
                         size="lg"
                         id="form5"
                         type="rel"
-                        value={employee.public.linkedIn}
+                        value={employee.public.linked_in}
                         onChange={(e) => {
-                            updateModel(e, 'linkedIn');
+                            updateModel(e, 'linked_in');
                         }}
                     />
                 </MDBCol>
@@ -265,9 +265,9 @@ export default function PublicProfile() {
                         size="lg"
                         id="form5"
                         type="rel"
-                        value={employee.public.phoneNumber}
+                        value={employee.public.phone_number}
                         onChange={(e) => {
-                            updateModel(e, 'phoneNumber');
+                            updateModel(e, 'phone_number');
                         }}
                     />
                 </MDBCol>
