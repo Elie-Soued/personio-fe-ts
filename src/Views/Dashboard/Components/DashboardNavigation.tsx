@@ -9,7 +9,7 @@ export default function DashboardNavigation() {
     };
 
     return (
-        <p className="d-flex flex-row  col-12">
+        <div className="d-flex flex-row  col-12 flex-wrap p-2 m-2 h-auto ">
             {sections.map((section) => (
                 <button
                     className="btn btn-light"
@@ -21,6 +21,6 @@ export default function DashboardNavigation() {
                     <span className="m-2">{section}</span>
                 </button>
             ))}
-        </p>
+        </div>
     );
 }

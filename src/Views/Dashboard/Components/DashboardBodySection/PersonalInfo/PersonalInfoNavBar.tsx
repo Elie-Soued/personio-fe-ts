@@ -8,7 +8,7 @@ export default function PersonalInfoNavBar() {
 
     return (
         <ul
-            className=" w-100 h-100  d-flex flex-row flex-md-column mb-2 p-2"
+            className=" w-100 h-100  d-flex  flex-md-column flex-wrap mb-2 p-2"
             style={{ listStyle: 'none', border: '1px solid black' }}
         >
             {sections.map((section) => (
