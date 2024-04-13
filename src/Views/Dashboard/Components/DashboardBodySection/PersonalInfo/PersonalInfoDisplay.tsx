@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-export default function PersonalInfoDisplay() {
+interface Props {
+    userData: object;
+}
+
+export default function PersonalInfoDisplay({ userData }: Props) {
     let [section, setSection] = useState('Public Profile');
 
     useEffect(() => {

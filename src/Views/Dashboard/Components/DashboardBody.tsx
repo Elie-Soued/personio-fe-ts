@@ -29,7 +29,7 @@ export default function DashboardBody({ userData }: Props) {
     const renderSection = (section: string) => {
         switch (section) {
             case 'Personal Info':
-                return <PersonalInfo />;
+                return <PersonalInfo userData={userData} />;
 
             case 'Salary':
                 return <Salary />;
