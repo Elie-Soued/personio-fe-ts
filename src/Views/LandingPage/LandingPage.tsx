@@ -3,40 +3,35 @@ import { MDBContainer } from 'mdb-react-ui-kit';
 import { doRequest, URLLogin } from '../../Utils/ServiceUtils';
 import { useNavigate } from 'react-router-dom';
 import undersurface from '../../images/undersurface.jpg';
-import responsability from '../../images/responsability.jpg';
+import landingpage from '../../images/landingpage.png';
 import { AxiosResponse } from 'axios';
 import './LandingPage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function LandingPage() {
-    let [username, setUsername] = useState('');
+    let [user_name, setUsername] = useState('');
     let [password, setPassword] = useState('');
 
     const navigate = useNavigate();
 
     const login = async () => {
-        const response: AxiosResponse | Error = await doRequest('post', URLLogin, {
-            username,
-            password,
-        });
+        try {
+            const response: AxiosResponse | Error = await doRequest('post', URLLogin, {
+                user_name,
+                password,
+            });
 
-        if (response?.data.code === 404) {
-            alert(response?.data.message);
-        } else if (response?.data.code === 401) {
-            alert(response?.data.message);
-        } else {
-            setTokenAndNavigate(response);
+            if (response?.data.code === 404 || response?.data.code === 401) {
+                alert(response?.data.message);
+            } else {
+                const token = response?.data.accessToken;
+                localStorage.setItem('token', token);
+
+                response.data.isadmin ? navigate(`/admin/${user_name}`) : navigate(`/dashboard/${user_name}`);
+            }
+        } catch (e) {
+            console.log(e);
         }
-    };
-
-    const register = () => {
-        navigate('/register');
-    };
-
-    const setTokenAndNavigate = (response: AxiosResponse) => {
-        const token = response?.data.accessToken;
-        localStorage.setItem('token', token);
-        navigate(`/dashboard/${username}`);
     };
 
     return (
@@ -67,7 +62,7 @@ export default function LandingPage() {
                                         id="form2Example11"
                                         className="form-control w-75 "
                                         placeholder="Enter your username"
-                                        value={username}
+                                        value={user_name}
                                         onChange={(e) => {
                                             setUsername(e.target.value);
                                         }}
@@ -106,18 +101,6 @@ export default function LandingPage() {
                                     </a>
                                 </div>
                                 {/* create account*/}
-                                <div className="d-flex align-items-center justify-content-center pb-4">
-                                    <p className="mb-0 me-2">Don't have an account?</p>
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-secondary"
-                                        onClick={() => {
-                                            register();
-                                        }}
-                                    >
-                                        Create New Colleague
-                                    </button>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -127,7 +110,7 @@ export default function LandingPage() {
                             <div className="h-100">
                                 <img
                                     className="w-100"
-                                    src={responsability}
+                                    src={landingpage}
                                     style={{ borderRadius: '5px' }}
                                     alt="loginImage"
                                 ></img>
