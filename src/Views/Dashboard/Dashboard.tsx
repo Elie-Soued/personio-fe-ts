@@ -5,6 +5,7 @@ import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
 import { useNavigate } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
+import { IEmployeeProfile } from '../RegisterPage/Interface/IEmployeeProfile';
 
 export default function Dashboard() {
     let [userData, setUserData] = useState({});
@@ -43,14 +44,14 @@ export default function Dashboard() {
                 {Object.values(userData).length ? (
                     <>
                         <div className="col-12 h-25">
-                            <DashboardHeader userData={userData} />
+                            <DashboardHeader userData={userData as IEmployeeProfile} />
                         </div>
                         <div className="col-12 h-75">
-                            <DashboardBody userData={userData} />
+                            <DashboardBody userData={userData as IEmployeeProfile} />
                         </div>
                     </>
                 ) : (
-                    ''
+                    <div className="spinner-border text-primary" role="status"></div>
                 )}
             </div>
         </div>

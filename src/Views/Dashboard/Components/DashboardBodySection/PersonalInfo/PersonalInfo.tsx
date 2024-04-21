@@ -1,8 +1,9 @@
 import PersonalInfoNavBar from './PersonalInfoNavBar';
 import PersonalInfoDisplay from './PersonalInfoDisplay';
+import { IEmployeeProfile } from '../../../../RegisterPage/Interface/IEmployeeProfile';
 
 interface Props {
-    userData: object;
+    userData: IEmployeeProfile;
 }
 
 export default function PersonalInfo({ userData }: Props) {

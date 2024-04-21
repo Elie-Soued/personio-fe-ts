@@ -5,9 +5,10 @@ import Documents from './DashboardBodySection/Documents/Documents';
 import Absence from './DashboardBodySection/Absence/Absence';
 import Onboarding from './DashboardBodySection/Onboarding/Onboarding';
 import Notes from './DashboardBodySection/Notes/Notes';
+import { IEmployeeProfile } from '../../RegisterPage/Interface/IEmployeeProfile';
 
 interface Props {
-    userData: object;
+    userData: IEmployeeProfile;
 }
 
 export default function DashboardBody({ userData }: Props) {
