@@ -13,8 +13,7 @@ export default function DashboardHeaderInfo({ userData }: Props) {
 
     return (
         <div className="d-flex flex-row col-12 h-75">
-            <div className="col-2">Photo</div>
-            <div style={{ border: '1px solid black' }} className="col-10">
+            <div className="col-10">
                 <span>
                     <h4>{user_name}</h4>
                 </span>
