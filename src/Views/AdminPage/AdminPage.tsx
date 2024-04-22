@@ -7,9 +7,7 @@ export default function AdminPage() {
     const navigate = useNavigate();
     const url = window.location.pathname;
     const userName = url.split('/')[2];
-    console.log('userName :>> ', userName);
 
-    console.log('url :>> ', url);
     return (
         <div
             className="p-5"
