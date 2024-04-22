@@ -13,7 +13,6 @@ export default function DashboardNavigation() {
             {sections.map((section) => (
                 <button
                     className="btn btn-light"
-                    style={{ backgroundColor: '#eee', border: '1px solid #eee' }}
                     onClick={() => {
                         changeSection(section);
                     }}
