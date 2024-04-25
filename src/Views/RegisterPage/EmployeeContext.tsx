@@ -2,9 +2,7 @@ import { createContext } from 'react';
 import { IEmployeeProfile } from './Interface/IEmployeeProfile';
 import { employeeProfileBlank } from './Constants/Constants';
 
-
-
-type EmployeeProfileContext = {
+export type EmployeeProfileContext = {
     employee: IEmployeeProfile;
     updateEmployee: (employeeUpdated: IEmployeeProfile) => void;
 };
