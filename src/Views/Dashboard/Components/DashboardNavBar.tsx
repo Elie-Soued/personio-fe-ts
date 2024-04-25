@@ -7,7 +7,7 @@ export default function DashboardNavbar() {
     const icons = [faHouse, faMagnifyingGlass, faEnvelope, faUserFriends, faCalendar];
 
     return (
-        <ul className=" w-100 h-100  d-flex flex-row flex-md-column" style={{ listStyle: 'none' }}>
+        <ul className=" w-100 h-100  d-flex flex-row flex-md-column p-3" style={{ listStyle: 'none' }}>
             {sections.map((section, index) => (
                 <li className="mb-2">
                     <a href="" style={{ textDecoration: 'none', color: 'inherit' }}>

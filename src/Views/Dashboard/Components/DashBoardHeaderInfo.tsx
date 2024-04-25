@@ -20,17 +20,17 @@ export default function DashboardHeaderInfo({ userData }: Props) {
                 <p className="d-flex flex-row  col-12">
                     <span className="d-flex flex-row">
                         <FontAwesomeIcon icon={faBriefcase} />
-                        <h6> {position}</h6>
+                        <h6> &nbsp; {position} &nbsp; </h6>
                     </span>
                     <span className="d-flex flex-row">
                         <FontAwesomeIcon icon={faUsers} />
                         <h6>
-                            {team} , {department}
+                            &nbsp; {team} , {department} &nbsp;
                         </h6>
                     </span>
                     <span className="d-flex flex-row">
                         <FontAwesomeIcon icon={faMapMarker} />
-                        <h6>{office}</h6>
+                        <h6>&nbsp;{office}</h6>
                     </span>
                 </p>
                 <p className="d-flex flex-row  col-12">

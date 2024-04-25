@@ -10,7 +10,7 @@ interface Props {
 
 export default function DashboardHeader({ userData }: Props) {
     return (
-        <div className="d-flex flex-column h-100">
+        <div className="d-flex flex-column h-100 p-3">
             <DashboardHeaderInfo userData={userData} />
 
             <div className="col-12 h-25" style={{ borderBottom: 'none' }}>
