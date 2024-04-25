@@ -1,6 +1,6 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext, ChangeEvent } from 'react';
-import { EmployeeContext } from '../../EmployeeContext';
+import { EmployeeContext } from '../../../../Constants/Constants';
 
 interface IPublicProfileProps {
     readOnly: boolean;

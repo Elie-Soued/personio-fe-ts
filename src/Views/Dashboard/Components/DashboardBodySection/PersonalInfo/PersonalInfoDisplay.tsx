@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
-import { EmployeeContext } from '../../../../RegisterPage/EmployeeContext';
-import Section from '../../../../RegisterPage/Components/RegisterSections/Section';
+import { EmployeeContext } from '../../../../../Constants/Constants';
+import Section from '../../../../RegisterPage/Components/RegisterSections/PersonalInfo';
 
 export default function PersonalInfoDisplay() {
     let [section, setSection] = useState('Public Profile');
