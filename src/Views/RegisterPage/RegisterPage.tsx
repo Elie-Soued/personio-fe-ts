@@ -2,11 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MDBContainer } from 'mdb-react-ui-kit';
 
-import { IEmployeeProfile } from './Interface/IEmployeeProfile';
-import { employeeProfileBlank, sections } from './Constants/Constants';
-import { EmployeeContext } from './EmployeeContext';
+import { EmployeeProfileInterface } from '../../Constants/Constants';
+import { employeeProfileBlank, sections } from '../../Constants/Constants';
+import { EmployeeContext } from '../../Constants/Constants';
 
-import Section from './Components/RegisterSections/Section';
+import Section from './Components/RegisterSections/PersonalInfo';
 import NagigationBtns from './Components/Buttons/NavigationBtn';
 import FooterBtns from './Components/Buttons/FooterBtns';
 
@@ -16,7 +16,7 @@ import king3 from '../../images/king3.jpg';
 export default function RegisterPage() {
     const [index, setIndex] = useState(0);
     const [activeSection, setActiveSection] = useState(sections[index]);
-    const [employee, setEmployee] = useState<IEmployeeProfile>(employeeProfileBlank);
+    const [employee, setEmployee] = useState<EmployeeProfileInterface>(employeeProfileBlank);
 
     const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ export default function RegisterPage() {
         setActiveSection(sections[index]);
     }, [index, goToNextPage, goToPreviousPage]);
 
-    const updateEmployee = (employeeUpdated: IEmployeeProfile) => {
+    const updateEmployee = (employeeUpdated: EmployeeProfileInterface) => {
         setEmployee(employeeUpdated);
     };
     return (
