@@ -2,13 +2,19 @@ import axios from 'axios';
 
 // URL for Development
 
-const URL = 'http://localhost:5000/users';
-const URLRegister = 'http://localhost:5000/users/register';
-const URLLogin = 'http://localhost:5000/users/login';
+// const URL = 'http://localhost:5000/users';
+// const URLRegister = 'http://localhost:5000/users/register';
+// const URLLogin = 'http://localhost:5000/users/login';
+
+// URL for Production
+
+const URL = 'http://pilexlaflex.com:5000/users';
+const URLRegister = 'http://pilexlaflex.com:5000/users/register';
+const URLLogin = 'http://pilexlaflex.com:5000/users/login';
 
 type httpVerb = 'head' | 'options' | 'put' | 'post' | 'patch' | 'delete' | 'get';
 
-const doRequest = async (httpVerb: httpVerb, url: any, payload?: any) => {
+const doRequest = async (httpVerb: httpVerb, url: string, payload?: object) => {
     const token = localStorage.getItem('token');
 
     if (token) axios.defaults.headers[httpVerb]!['authorization'] = token;
@@ -19,7 +25,7 @@ const doRequest = async (httpVerb: httpVerb, url: any, payload?: any) => {
         const response = await axios[httpVerb](url, payload);
         return response;
     } catch (error) {
-        console.log(error, 'DB might be out of sync');
+        throw new Error('DB might be out of sync');
     }
 };
 
