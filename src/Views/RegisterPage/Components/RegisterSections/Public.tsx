@@ -3,7 +3,11 @@ import { ChangeEvent, useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 import { team, department, office, positions } from '../../Constants/Constants';
 
-export default function PublicProfile() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function PublicProfile({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, property: string) => {
@@ -32,6 +36,7 @@ export default function PublicProfile() {
                         size="lg"
                         id="form1"
                         type="text"
+                        disabled={readOnly}
                         value={employee.public.first_name}
                         onChange={(e) => {
                             updateModel(e, 'first_name');
@@ -46,6 +51,7 @@ export default function PublicProfile() {
                         size="lg"
                         id="form2"
                         type="text"
+                        disabled={readOnly}
                         value={employee.public.last_name}
                         onChange={(e) => {
                             updateModel(e, 'last_name');
@@ -66,6 +72,7 @@ export default function PublicProfile() {
                                 name="gender"
                                 id="male"
                                 checked={employee.public.gender === 'Male'}
+                                disabled={readOnly}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
@@ -82,6 +89,7 @@ export default function PublicProfile() {
                                 name="gender"
                                 id="female"
                                 checked={employee.public.gender === 'Female'}
+                                disabled={readOnly}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
@@ -98,6 +106,7 @@ export default function PublicProfile() {
                                 name="gender"
                                 id="Other"
                                 checked={employee.public.gender === 'Other'}
+                                disabled={readOnly}
                                 onChange={(e) => {
                                     updateModel(e, 'gender');
                                 }}
@@ -116,6 +125,7 @@ export default function PublicProfile() {
                         id="form4"
                         type="email"
                         value={employee.public.email}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'email');
                         }}
@@ -132,6 +142,7 @@ export default function PublicProfile() {
                         id="form3"
                         type="text"
                         value={employee.public.company_phone_number}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'company_phone_number');
                         }}
@@ -143,6 +154,7 @@ export default function PublicProfile() {
                         className="form-select"
                         aria-label="Default select example"
                         value={employee.public.office}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'office');
                         }}
@@ -168,6 +180,7 @@ export default function PublicProfile() {
                         className="form-select"
                         aria-label="Default select example"
                         value={employee.public.department}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'department');
                         }}
@@ -189,6 +202,7 @@ export default function PublicProfile() {
                         className="form-select"
                         aria-label="Default select example"
                         value={employee.public.position}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'position');
                         }}
@@ -212,6 +226,7 @@ export default function PublicProfile() {
                         className="form-select"
                         aria-label="Default select example"
                         value={employee.public.team}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'team');
                         }}
@@ -236,6 +251,7 @@ export default function PublicProfile() {
                         id="form5"
                         type="rel"
                         value={employee.public.linked_in}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'linked_in');
                         }}
@@ -252,6 +268,7 @@ export default function PublicProfile() {
                         id="form3"
                         type="date"
                         value={employee.public.birthday}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'birthday');
                         }}
@@ -266,6 +283,7 @@ export default function PublicProfile() {
                         id="form5"
                         type="rel"
                         value={employee.public.phone_number}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'phone_number');
                         }}

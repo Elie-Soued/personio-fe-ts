@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function PayrollInformation() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function PayrollInformation({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
@@ -31,6 +35,7 @@ export default function PayrollInformation() {
                         id="form1"
                         type="text"
                         value={employee.payrollInformation.salary_type}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'salary_type');
                         }}
@@ -45,6 +50,7 @@ export default function PayrollInformation() {
                         id="form2"
                         type="text"
                         value={employee.payrollInformation.tax_id}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'tax_id');
                         }}
@@ -61,6 +67,7 @@ export default function PayrollInformation() {
                         id="form4"
                         type="text"
                         value={employee.payrollInformation.social_security_number}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'social_security_number');
                         }}
@@ -75,6 +82,7 @@ export default function PayrollInformation() {
                         id="form4"
                         type="text"
                         value={employee.payrollInformation.wage_tax_class}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'wage_tax_class');
                         }}
@@ -91,6 +99,7 @@ export default function PayrollInformation() {
                         id="form3"
                         type="number"
                         value={employee.payrollInformation.children}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'children');
                         }}
@@ -105,6 +114,7 @@ export default function PayrollInformation() {
                         id="form5"
                         type="number"
                         value={employee.payrollInformation.child_allowance}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'child_allowance');
                         }}
@@ -121,6 +131,7 @@ export default function PayrollInformation() {
                         id="form3"
                         type="text"
                         value={employee.payrollInformation.marital_status}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'marital_status');
                         }}
@@ -135,6 +146,7 @@ export default function PayrollInformation() {
                         id="form5"
                         type="text"
                         value={employee.payrollInformation.religious_denomination}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'religious_denomination');
                         }}
@@ -151,6 +163,7 @@ export default function PayrollInformation() {
                         id="form3"
                         type="text"
                         value={employee.payrollInformation.type_of_health_insurance}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'type_of_health_insurance');
                         }}
@@ -165,6 +178,7 @@ export default function PayrollInformation() {
                         id="form5"
                         type="text"
                         value={employee.payrollInformation.name_of_health_insurance}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'name_of_health_insurance');
                         }}
@@ -181,6 +195,7 @@ export default function PayrollInformation() {
                         id="form3"
                         type="text"
                         value={employee.payrollInformation.main_or_secondary_occupation}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'main_or_secondary_occupation');
                         }}
@@ -195,6 +210,7 @@ export default function PayrollInformation() {
                         id="form5"
                         type="text"
                         value={employee.payrollInformation.wage_tax_allowance}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'wage_tax_allowance');
                         }}

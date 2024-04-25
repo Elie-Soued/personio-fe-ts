@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext, ChangeEvent } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function Development() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function Development({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: ChangeEvent<HTMLTextAreaElement>, property: string) => {
@@ -31,6 +35,7 @@ export default function Development() {
                             rows={12}
                             cols={6}
                             value={employee.development.training}
+                            disabled={readOnly}
                             onChange={(e) => {
                                 updateModel(e, 'training');
                             }}

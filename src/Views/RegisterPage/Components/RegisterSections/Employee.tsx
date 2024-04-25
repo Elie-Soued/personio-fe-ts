@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function EmployeeEquipment() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function EmployeeEquipment({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
@@ -31,6 +35,7 @@ export default function EmployeeEquipment() {
                         id="form1"
                         type="text"
                         value={employee.employeeEquipment.notebook}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'notebook');
                         }}
@@ -44,6 +49,7 @@ export default function EmployeeEquipment() {
                         id="form1"
                         type="text"
                         value={employee.employeeEquipment.cell_phone}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'cell_phone');
                         }}

@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function BankDetails() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function BankDetails({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
@@ -31,6 +35,7 @@ export default function BankDetails() {
                         id="form1"
                         type="text"
                         value={employee.bankDetails.holder_of_bank_account}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'holder_of_bank_account');
                         }}
@@ -44,6 +49,7 @@ export default function BankDetails() {
                         id="form1"
                         type="text"
                         value={employee.bankDetails.iban}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'iban');
                         }}
@@ -57,6 +63,7 @@ export default function BankDetails() {
                         id="form1"
                         type="text"
                         value={employee.bankDetails.bic}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'bic');
                         }}

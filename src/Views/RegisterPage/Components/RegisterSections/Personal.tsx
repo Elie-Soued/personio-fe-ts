@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function PersonalData() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function PersonalData({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
@@ -30,6 +34,7 @@ export default function PersonalData() {
                         id="form1"
                         type="text"
                         value={employee.personalData.street_and_house_number}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'street_and_house_number');
                         }}
@@ -46,6 +51,7 @@ export default function PersonalData() {
                         id="form4"
                         type="text"
                         value={employee.personalData.postal_code}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'postal_code');
                         }}
@@ -62,6 +68,7 @@ export default function PersonalData() {
                         id="form5"
                         type="text"
                         value={employee.personalData.city}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'city');
                         }}
@@ -78,6 +85,7 @@ export default function PersonalData() {
                         id="form5"
                         type="email"
                         value={employee.personalData.private_email}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'private_email');
                         }}
@@ -94,6 +102,7 @@ export default function PersonalData() {
                         id="form5"
                         type="text"
                         value={employee.personalData.private_phone}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'private_phone');
                         }}

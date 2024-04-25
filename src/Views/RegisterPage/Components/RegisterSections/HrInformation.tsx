@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { ChangeEvent, useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function HrInformation() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function HrInformation({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, property: string) => {
@@ -28,6 +32,7 @@ export default function HrInformation() {
                         className="form-select"
                         aria-label="Default select example"
                         value={employee.hrInformation.status}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'status');
                         }}
@@ -50,6 +55,7 @@ export default function HrInformation() {
                         id="form2"
                         type="text"
                         value={employee.hrInformation.employment_type}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'employment_type');
                         }}
@@ -66,6 +72,7 @@ export default function HrInformation() {
                         id="form4"
                         type="text"
                         value={employee.hrInformation.occupation_type}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'occupation_type');
                         }}
@@ -79,6 +86,7 @@ export default function HrInformation() {
                         id="form4"
                         type="text"
                         value={employee.hrInformation.supervisor}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'supervisor');
                         }}
@@ -95,6 +103,7 @@ export default function HrInformation() {
                         id="form3"
                         type="date"
                         value={employee.hrInformation.hire_date}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'hire_date');
                         }}
@@ -109,6 +118,7 @@ export default function HrInformation() {
                         id="form5"
                         type="date"
                         value={employee.hrInformation.contract_end}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'contract_end');
                         }}
@@ -125,6 +135,7 @@ export default function HrInformation() {
                         id="form3"
                         type="text"
                         value={employee.hrInformation.length_of_probation}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'length_of_probation');
                         }}
@@ -139,6 +150,7 @@ export default function HrInformation() {
                         id="form5"
                         type="text"
                         value={employee.hrInformation.notice_period}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'notice_period');
                         }}
@@ -155,6 +167,7 @@ export default function HrInformation() {
                         id="form3"
                         type="number"
                         value={employee.hrInformation.weekly_hours}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'weekly_hours');
                         }}
@@ -169,6 +182,7 @@ export default function HrInformation() {
                         id="form5"
                         type="text"
                         value={employee.hrInformation.cost_center}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'cost_center');
                         }}
@@ -185,6 +199,7 @@ export default function HrInformation() {
                         id="form3"
                         type="text"
                         value={employee.hrInformation.nationality}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'nationality');
                         }}
@@ -198,6 +213,7 @@ export default function HrInformation() {
                         id="form3"
                         type="date"
                         value={employee.hrInformation.resident_permit_valid_until}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'resident_permit_valid_until');
                         }}

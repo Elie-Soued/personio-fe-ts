@@ -2,7 +2,11 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../EmployeeContext';
 
-export default function EmergencyContact() {
+interface IPublicProfileProps {
+    readOnly: boolean;
+}
+
+export default function EmergencyContact({ readOnly }: IPublicProfileProps) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
@@ -31,6 +35,7 @@ export default function EmergencyContact() {
                         id="form1"
                         type="text"
                         value={employee.emergencyContact.emergency_name}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'emergency_name');
                         }}
@@ -46,6 +51,7 @@ export default function EmergencyContact() {
                         id="form1"
                         type="text"
                         value={employee.emergencyContact.emergency_number}
+                        disabled={readOnly}
                         onChange={(e) => {
                             updateModel(e, 'emergency_number');
                         }}
