@@ -105,5 +105,5 @@ export default function RegisterPage() {
 }
 
 function renderActiveSection(activeSection: string) {
-    return <Section name={activeSection} />;
+    return <Section name={activeSection} showTitle={true} context={employeeProfileBlank} readOnly={false} />;
 }

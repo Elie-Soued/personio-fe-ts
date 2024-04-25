@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { EmployeeContext } from '../../../../RegisterPage/EmployeeContext';
+import Section from '../../../../RegisterPage/Components/RegisterSections/Section';
 
-interface Props {
-    userData: object;
-}
-
-export default function PersonalInfoDisplay({ userData }: Props) {
+export default function PersonalInfoDisplay() {
     let [section, setSection] = useState('Public Profile');
+
+    const { employee } = useContext(EmployeeContext);
+
+    function renderActiveSection(activeSection: string) {
+        return <Section name={activeSection} showTitle={false} context={employee} readOnly={true} />;
+    }
 
     useEffect(() => {
         const handleSectionChange = (event: Event) => {
@@ -20,17 +24,15 @@ export default function PersonalInfoDisplay({ userData }: Props) {
         };
     }, []);
 
-    const renderSection = (section: string) => {
-        return section;
-    };
-
     return (
         <div
+            className="w-100 h-auto"
             style={{
-                height: '100%',
+                height: 'auto',
+                border: '1px solid white',
             }}
         >
-            <h1> {renderSection(section)}</h1>
+            {renderActiveSection(section)}
         </div>
     );
 }
