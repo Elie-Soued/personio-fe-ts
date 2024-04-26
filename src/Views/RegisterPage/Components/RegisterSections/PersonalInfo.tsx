@@ -8,11 +8,7 @@ import BankDetails from './Bank';
 import EmergencyContact from './Emergency';
 import EmployeeEquipment from './Employee';
 import Development from './Development';
-import {
-    EmployeeProfileInterface,
-    EmployeeProfileContext,
-    PersonalInfoInterface,
-} from '../../../../Constants/Constants';
+import { EmployeeProfileInterface, EmployeeProfileContext, PersonalInfoInterface } from '../../../../Constants';
 
 export default function PersonalInfo({ name, showTitle, context, readOnly }: PersonalInfoInterface) {
     const EmployeeContext = createContext<EmployeeProfileContext>({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { sections, NavigationBtnsInterface } from '../../../../Constants/Constants';
+import { sections, NavigationBtnsInterface } from '../../../../Constants';
 
 export default function NagigationBtns({ nextFn, prevFn, section }: NavigationBtnsInterface) {
     function findSection(section: string) {

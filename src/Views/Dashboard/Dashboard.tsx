@@ -5,7 +5,7 @@ import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
 import { useNavigate } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
-import { EmployeeProfileInterface } from '../../Constants/Constants';
+import { EmployeeProfileInterface } from '../../Constants';
 
 export default function Dashboard() {
     let [userData, setUserData] = useState({});

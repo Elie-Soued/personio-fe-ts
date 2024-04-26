@@ -1,4 +1,4 @@
-import { sections } from '../../../../../Constants/Constants';
+import { sections } from '../../../../../Constants';
 
 export default function PersonalInfoNavBar() {
     const changePersonalInfoSection = (section: string) => {

@@ -5,7 +5,7 @@ import Documents from './DashboardBodySection/Documents/Documents';
 import Absence from './DashboardBodySection/Absence/Absence';
 import Onboarding from './DashboardBodySection/Onboarding/Onboarding';
 import Notes from './DashboardBodySection/Notes/Notes';
-import { EmployeeProfileInterface } from '../../../Constants/Constants';
+import { EmployeeProfileInterface } from '../../../Constants';
 
 export default function DashboardBody(userData: EmployeeProfileInterface) {
     let [section, setSection] = useState('Personal Info');

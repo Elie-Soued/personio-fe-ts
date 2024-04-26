@@ -1,5 +1,5 @@
 import { Button, Modal } from 'react-bootstrap';
-import { SuccessModalInterface } from '../../../Constants/Constants';
+import { SuccessModalInterface } from '../../../Constants';
 
 export default function SuccessModal({ show, handleClose, navigateDashboard }: SuccessModalInterface) {
     return (

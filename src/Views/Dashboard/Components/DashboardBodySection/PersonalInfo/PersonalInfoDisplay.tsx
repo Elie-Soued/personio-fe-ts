@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { EmployeeContext } from '../../../../../Constants/Constants';
+import { EmployeeContext } from '../../../../../Constants';
 import Section from '../../../../RegisterPage/Components/RegisterSections/PersonalInfo';
 
 export default function PersonalInfoDisplay() {

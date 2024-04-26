@@ -2,7 +2,7 @@ import React from 'react';
 
 import DashboardNavigation from './DashboardNavigation';
 import DashboardHeaderInfo from './DashBoardHeaderInfo';
-import { EmployeeProfileInterface } from '../../../Constants/Constants';
+import { EmployeeProfileInterface } from '../../../Constants';
 
 export default function DashboardHeader(userData: EmployeeProfileInterface) {
     return (

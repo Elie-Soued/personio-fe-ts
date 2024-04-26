@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PersonalInfoNavBar from './PersonalInfoNavBar';
 import PersonalInfoDisplay from './PersonalInfoDisplay';
-import { EmployeeProfileInterface, EmployeeContext } from '../../../../../Constants/Constants';
+import { EmployeeProfileInterface, EmployeeContext } from '../../../../../Constants';
 
 export default function PersonalInfo(userData: EmployeeProfileInterface) {
     const [employee, setEmployee] = useState<EmployeeProfileInterface>(userData);

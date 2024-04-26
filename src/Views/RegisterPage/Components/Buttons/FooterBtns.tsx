@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { EmployeeContext, FooterBtnsInterface } from '../../../../Constants/Constants';
+import { EmployeeContext, FooterBtnsInterface } from '../../../../Constants';
 import { doRequest, URLRegister } from '../../../../Utils/ServiceUtils';
 import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

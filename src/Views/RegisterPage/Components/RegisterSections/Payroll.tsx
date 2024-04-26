@@ -1,6 +1,6 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
-import { EmployeeContext } from '../../../../Constants/Constants';
+import { EmployeeContext } from '../../../../Constants';
 
 export default function PayrollInformation({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
