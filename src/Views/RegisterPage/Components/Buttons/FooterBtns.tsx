@@ -1,18 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { EmployeeContext } from '../../../../Constants/Constants';
+import { EmployeeContext, FooterBtnsInterface } from '../../../../Constants/Constants';
 import { doRequest, URLRegister } from '../../../../Utils/ServiceUtils';
 import { faUserPlus, faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AxiosResponse } from 'axios';
 import SuccessModal from '../Modal';
 
-interface Props {
-    backToLoginFn: Function;
-    clearContext: Function;
-}
-
-export default function FooterBtns({ backToLoginFn, clearContext }: Props) {
+export default function FooterBtns({ backToLoginFn, clearContext }: FooterBtnsInterface) {
     const [progressBar, setProgressBar] = useState(0);
     const [showModal, setShowModal] = useState(false);
 

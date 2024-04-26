@@ -258,3 +258,20 @@ export type PersonalInfoInterface = {
     context: EmployeeProfileInterface;
     readOnly: boolean;
 };
+
+export interface NavigationBtnsInterface {
+    nextFn: Function;
+    prevFn: Function;
+    section: string;
+}
+
+export interface FooterBtnsInterface {
+    backToLoginFn: Function;
+    clearContext: Function;
+}
+
+export interface SuccessModalInterface {
+    show: boolean;
+    handleClose: () => void;
+    navigateDashboard: () => void;
+}

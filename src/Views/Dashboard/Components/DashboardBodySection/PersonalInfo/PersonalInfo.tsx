@@ -3,11 +3,7 @@ import PersonalInfoNavBar from './PersonalInfoNavBar';
 import PersonalInfoDisplay from './PersonalInfoDisplay';
 import { EmployeeProfileInterface, EmployeeContext } from '../../../../../Constants/Constants';
 
-interface Props {
-    userData: EmployeeProfileInterface;
-}
-
-export default function PersonalInfo({ userData }: Props) {
+export default function PersonalInfo(userData: EmployeeProfileInterface) {
     const [employee, setEmployee] = useState<EmployeeProfileInterface>(userData);
 
     const updateEmployee = (employeeUpdated: EmployeeProfileInterface) => {

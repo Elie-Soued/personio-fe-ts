@@ -1,15 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { sections } from '../../../../Constants/Constants';
+import { sections, NavigationBtnsInterface } from '../../../../Constants/Constants';
 
-interface Props {
-    nextFn: Function;
-    prevFn: Function;
-    section: string;
-}
-
-export default function NagigationBtns({ nextFn, prevFn, section }: Props) {
+export default function NagigationBtns({ nextFn, prevFn, section }: NavigationBtnsInterface) {
     function findSection(section: string) {
         return function (value: string, index: number, obj: string[]) {
             return value === section;

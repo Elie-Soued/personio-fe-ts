@@ -2,11 +2,7 @@ import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../../../Constants/Constants';
 
-interface IPublicProfileProps {
-    readOnly: boolean;
-}
-
-export default function PayrollInformation({ readOnly }: IPublicProfileProps) {
+export default function PayrollInformation({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
