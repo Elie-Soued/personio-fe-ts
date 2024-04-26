@@ -2,7 +2,7 @@ import React from 'react';
 
 import { faBriefcase, faMapMarker, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { EmployeeProfileInterface } from '../../../Constants';
+import { EmployeeProfileInterface } from '../../../constants';
 
 export default function DashboardHeaderInfo(userData: EmployeeProfileInterface) {
     const { user_name, position, team, department, office } = userData.public;

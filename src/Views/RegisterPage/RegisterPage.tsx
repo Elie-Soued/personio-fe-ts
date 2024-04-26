@@ -2,9 +2,9 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MDBContainer } from 'mdb-react-ui-kit';
 
-import { EmployeeProfileInterface } from '../../Constants';
-import { employeeProfileBlank, sections } from '../../Constants';
-import { EmployeeContext } from '../../Constants';
+import { EmployeeProfileInterface } from '../../constants';
+import { employeeProfileBlank, sections } from '../../constants';
+import { EmployeeContext } from '../../constants';
 
 import Section from './Components/RegisterSections/PersonalInfo';
 import NagigationBtns from './Components/Buttons/NavigationBtn';
