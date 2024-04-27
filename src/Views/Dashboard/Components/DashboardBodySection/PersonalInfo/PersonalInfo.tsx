@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import PersonalInfoNavBar from './PersonalInfoNavBar';
 import PersonalInfoDisplay from './PersonalInfoDisplay';
-import { EmployeeProfileInterface, EmployeeContext } from '../../../../../constants';
+import { EmployeeProfileType } from '../../../../../types';
+import { EmployeeContext } from '../../../../../constants';
 
-export default function PersonalInfo(userData: EmployeeProfileInterface) {
-    const [employee, setEmployee] = useState<EmployeeProfileInterface>(userData);
+export default function PersonalInfo(userData: EmployeeProfileType) {
+    const [employee, setEmployee] = useState<EmployeeProfileType>(userData);
 
-    const updateEmployee = (employeeUpdated: EmployeeProfileInterface) => {
+    const updateEmployee = (employeeUpdated: EmployeeProfileType) => {
         setEmployee(employeeUpdated);
     };
     return (

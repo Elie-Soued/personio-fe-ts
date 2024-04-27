@@ -5,9 +5,9 @@ import Documents from './DashboardBodySection/Documents/Documents';
 import Absence from './DashboardBodySection/Absence/Absence';
 import Onboarding from './DashboardBodySection/Onboarding/Onboarding';
 import Notes from './DashboardBodySection/Notes/Notes';
-import { EmployeeProfileInterface } from '../../../constants';
+import { EmployeeProfileType } from '../../../types';
 
-export default function DashboardBody(userData: EmployeeProfileInterface) {
+export default function DashboardBody(userData: EmployeeProfileType) {
     let [section, setSection] = useState('Personal Info');
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function DashboardBody(userData: EmployeeProfileInterface) {
     const renderSection = (section: string) => {
         switch (section) {
             case 'Personal Info':
-                return <PersonalInfo {...(userData as EmployeeProfileInterface)} />;
+                return <PersonalInfo {...(userData as EmployeeProfileType)} />;
 
             case 'Salary':
                 return <Salary />;

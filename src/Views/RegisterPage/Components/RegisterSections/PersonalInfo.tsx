@@ -8,10 +8,10 @@ import BankDetails from './Bank';
 import EmergencyContact from './Emergency';
 import EmployeeEquipment from './Employee';
 import Development from './Development';
-import { EmployeeProfileInterface, EmployeeProfileContext, PersonalInfoInterface } from '../../../../constants';
+import { EmployeeProfileType, EmployeeProfileContextType, PersonalInfoType } from '../../../../types';
 
-export default function PersonalInfo({ name, showTitle, context, readOnly }: PersonalInfoInterface) {
-    const EmployeeContext = createContext<EmployeeProfileContext>({
+export default function PersonalInfo({ name, showTitle, context, readOnly }: PersonalInfoType) {
+    const EmployeeContext = createContext<EmployeeProfileContextType>({
         employee: context,
         updateEmployee: () => {},
     });
@@ -55,11 +55,7 @@ export default function PersonalInfo({ name, showTitle, context, readOnly }: Per
     );
 }
 
-const renderPersonalInfoSection = (
-    section: string,
-    employeeContextValues: EmployeeProfileInterface,
-    readOnly: boolean
-) => {
+const renderPersonalInfoSection = (section: string, employeeContextValues: EmployeeProfileType, readOnly: boolean) => {
     switch (section) {
         case 'Public Profile':
             return <PublicProfile readOnly={readOnly} />;

@@ -5,7 +5,7 @@ import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
 import { useNavigate } from 'react-router-dom';
 import { AxiosResponse } from 'axios';
-import { EmployeeProfileInterface } from '../../constants';
+import { EmployeeProfileType } from '../../types';
 
 export default function Dashboard() {
     let [userData, setUserData] = useState({});
@@ -38,10 +38,10 @@ export default function Dashboard() {
                 {Object.values(userData).length ? (
                     <>
                         <div className="col-12 h-25">
-                            <DashboardHeader {...(userData as EmployeeProfileInterface)} />
+                            <DashboardHeader {...(userData as EmployeeProfileType)} />
                         </div>
                         <div className="col-12 h-75">
-                            <DashboardBody {...(userData as EmployeeProfileInterface)} />
+                            <DashboardBody {...(userData as EmployeeProfileType)} />
                         </div>
                     </>
                 ) : (

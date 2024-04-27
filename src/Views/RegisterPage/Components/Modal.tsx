@@ -1,7 +1,7 @@
 import { Button, Modal } from 'react-bootstrap';
-import { SuccessModalInterface } from '../../../constants';
+import { SuccessModalType } from '../../../types';
 
-export default function SuccessModal({ show, handleClose, navigateDashboard }: SuccessModalInterface) {
+export default function SuccessModal({ show, handleClose, navigateDashboard }: SuccessModalType) {
     return (
         <>
             <Modal show={show} onHide={handleClose}>

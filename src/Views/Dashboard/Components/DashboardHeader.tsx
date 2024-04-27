@@ -2,9 +2,9 @@ import React from 'react';
 
 import DashboardNavigation from './DashboardNavigation';
 import DashboardHeaderInfo from './DashBoardHeaderInfo';
-import { EmployeeProfileInterface } from '../../../constants';
+import { EmployeeProfileType } from '../../../types';
 
-export default function DashboardHeader(userData: EmployeeProfileInterface) {
+export default function DashboardHeader(userData: EmployeeProfileType) {
     return (
         <div className="d-flex flex-column h-100 p-3">
             <DashboardHeaderInfo {...userData} />
