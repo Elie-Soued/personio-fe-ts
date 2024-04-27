@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { EmployeeProfileType, EmployeeProfileContextType } from './types';
 
-const sections = [
+const sections: string[] = [
     'Public Profile',
     'Hr Information',
     'Personal Data',
@@ -12,7 +12,7 @@ const sections = [
     'Development',
 ];
 
-const employeeProfileBlank = {
+const employeeProfileBlank: EmployeeProfileType = {
     public: {
         first_name: '',
         last_name: '',
@@ -89,7 +89,7 @@ const employeeProfileBlank = {
     },
 };
 
-const team = [
+const team: string[] = [
     'Test Automation',
     'Backend',
     'Frontend',
@@ -104,9 +104,9 @@ const team = [
     'empty',
 ];
 
-const department = ['Delivery', 'HR', 'Management', 'Platform', 'Sales', 'Finance', 'OPS', 'empty'];
+const department: string[] = ['Delivery', 'HR', 'Management', 'Platform', 'Sales', 'Finance', 'OPS', 'empty'];
 
-const office = [
+const office: string[] = [
     'Würzburg(Germany)',
     'Accra (Ghana)',
     'Sagamu (Nigeria)',
@@ -125,7 +125,7 @@ const office = [
     'Stutgart (Germany)',
 ];
 
-const positions = [
+const positions: string[] = [
     'Working Student Software Developer',
     'Working Student Presales',
     'Working Student Junior Software Developer',
@@ -166,7 +166,7 @@ const positions = [
     'Cleaning Staff',
 ];
 
-const EmployeeContext = createContext<EmployeeProfileContextType>({
+const EmployeeContext: React.Context<EmployeeProfileContextType> = createContext<EmployeeProfileContextType>({
     employee: employeeProfileBlank,
     updateEmployee: (employeeUpdated: EmployeeProfileType) => {},
 });
