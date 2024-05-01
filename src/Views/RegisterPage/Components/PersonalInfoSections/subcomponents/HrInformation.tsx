@@ -1,15 +1,15 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
-import { useContext } from 'react';
-import { EmployeeContext } from '../../../../constants';
+import { ChangeEvent, useContext } from 'react';
+import { EmployeeContext } from '../../../../../constants';
 
-export default function PayrollInformation({ readOnly }: { readOnly: boolean }) {
+export default function HrInformation({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
-    const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
+    const updateModel = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, property: string) => {
         updateEmployee({
             ...employee,
-            payrollInformation: {
-                ...employee.payrollInformation,
+            hrInformation: {
+                ...employee.hrInformation,
                 [property]: e.target.value,
             },
         });
@@ -24,63 +24,67 @@ export default function PayrollInformation({ readOnly }: { readOnly: boolean }) 
         >
             <MDBRow>
                 <MDBCol md="6">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Salary type"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.payrollInformation.salary_type}
+                    <select
+                        className="form-select"
+                        aria-label="Default select example"
+                        value={employee.hrInformation.status}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'salary_type');
+                            updateModel(e, 'status');
                         }}
-                    />
+                        style={{
+                            height: '48px',
+                            fontSize: '1.2rem',
+                        }}
+                    >
+                        <option selected>Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
                 </MDBCol>
 
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Tax ID"
+                        label="Employment Type"
                         size="lg"
                         id="form2"
                         type="text"
-                        value={employee.payrollInformation.tax_id}
+                        value={employee.hrInformation.employment_type}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'tax_id');
+                            updateModel(e, 'employment_type');
                         }}
                     />
                 </MDBCol>
             </MDBRow>
 
             <MDBRow>
-                <MDBCol md="6">
+                <MDBCol md="6" className="mb-4">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Social security number"
+                        label="Occupation Type "
                         size="lg"
                         id="form4"
                         type="text"
-                        value={employee.payrollInformation.social_security_number}
+                        value={employee.hrInformation.occupation_type}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'social_security_number');
+                            updateModel(e, 'occupation_type');
                         }}
                     />
                 </MDBCol>
-
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Wage tax class"
+                        label="Supervisor"
                         size="lg"
                         id="form4"
                         type="text"
-                        value={employee.payrollInformation.wage_tax_class}
+                        value={employee.hrInformation.supervisor}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'wage_tax_class');
+                            updateModel(e, 'supervisor');
                         }}
                     />
                 </MDBCol>
@@ -90,14 +94,78 @@ export default function PayrollInformation({ readOnly }: { readOnly: boolean }) 
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Children"
+                        label="Hire date"
+                        size="lg"
+                        id="form3"
+                        type="date"
+                        value={employee.hrInformation.hire_date}
+                        disabled={readOnly}
+                        onChange={(e) => {
+                            updateModel(e, 'hire_date');
+                        }}
+                    />
+                </MDBCol>
+
+                <MDBCol md="6">
+                    <MDBInput
+                        wrapperClass="mb-4"
+                        label="Contract ends"
+                        size="lg"
+                        id="form5"
+                        type="date"
+                        value={employee.hrInformation.contract_end}
+                        disabled={readOnly}
+                        onChange={(e) => {
+                            updateModel(e, 'contract_end');
+                        }}
+                    />
+                </MDBCol>
+            </MDBRow>
+
+            <MDBRow>
+                <MDBCol md="6">
+                    <MDBInput
+                        wrapperClass="mb-4"
+                        label="Length of probation"
+                        size="lg"
+                        id="form3"
+                        type="text"
+                        value={employee.hrInformation.length_of_probation}
+                        disabled={readOnly}
+                        onChange={(e) => {
+                            updateModel(e, 'length_of_probation');
+                        }}
+                    />
+                </MDBCol>
+
+                <MDBCol md="6">
+                    <MDBInput
+                        wrapperClass="mb-4"
+                        label="Notice period"
+                        size="lg"
+                        id="form5"
+                        type="text"
+                        value={employee.hrInformation.notice_period}
+                        disabled={readOnly}
+                        onChange={(e) => {
+                            updateModel(e, 'notice_period');
+                        }}
+                    />
+                </MDBCol>
+            </MDBRow>
+
+            <MDBRow>
+                <MDBCol md="6">
+                    <MDBInput
+                        wrapperClass="mb-4"
+                        label="Weekly Hours"
                         size="lg"
                         id="form3"
                         type="number"
-                        value={employee.payrollInformation.children}
+                        value={employee.hrInformation.weekly_hours}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'children');
+                            updateModel(e, 'weekly_hours');
                         }}
                     />
                 </MDBCol>
@@ -105,14 +173,14 @@ export default function PayrollInformation({ readOnly }: { readOnly: boolean }) 
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Child allowance"
+                        label="Cost center"
                         size="lg"
                         id="form5"
-                        type="number"
-                        value={employee.payrollInformation.child_allowance}
+                        type="text"
+                        value={employee.hrInformation.cost_center}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'child_allowance');
+                            updateModel(e, 'cost_center');
                         }}
                     />
                 </MDBCol>
@@ -122,93 +190,28 @@ export default function PayrollInformation({ readOnly }: { readOnly: boolean }) 
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Mariral status"
+                        label="Nationality"
                         size="lg"
                         id="form3"
                         type="text"
-                        value={employee.payrollInformation.marital_status}
+                        value={employee.hrInformation.nationality}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'marital_status');
+                            updateModel(e, 'nationality');
                         }}
                     />
                 </MDBCol>
-
                 <MDBCol md="6">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Religious denomination"
-                        size="lg"
-                        id="form5"
-                        type="text"
-                        value={employee.payrollInformation.religious_denomination}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'religious_denomination');
-                        }}
-                    />
-                </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-                <MDBCol md="6">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Type of health insurrance"
+                        label="Residence permit valid until"
                         size="lg"
                         id="form3"
-                        type="text"
-                        value={employee.payrollInformation.type_of_health_insurance}
+                        type="date"
+                        value={employee.hrInformation.resident_permit_valid_until}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'type_of_health_insurance');
-                        }}
-                    />
-                </MDBCol>
-
-                <MDBCol md="6">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Name of health insurrance"
-                        size="lg"
-                        id="form5"
-                        type="text"
-                        value={employee.payrollInformation.name_of_health_insurance}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'name_of_health_insurance');
-                        }}
-                    />
-                </MDBCol>
-            </MDBRow>
-
-            <MDBRow>
-                <MDBCol md="6">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Main or secondary occupation"
-                        size="lg"
-                        id="form3"
-                        type="text"
-                        value={employee.payrollInformation.main_or_secondary_occupation}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'main_or_secondary_occupation');
-                        }}
-                    />
-                </MDBCol>
-
-                <MDBCol md="6">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Wage tax allowance"
-                        size="lg"
-                        id="form5"
-                        type="text"
-                        value={employee.payrollInformation.wage_tax_allowance}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'wage_tax_allowance');
+                            updateModel(e, 'resident_permit_valid_until');
                         }}
                     />
                 </MDBCol>

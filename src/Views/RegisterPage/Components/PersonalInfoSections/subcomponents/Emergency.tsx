@@ -1,15 +1,15 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
-import { EmployeeContext } from '../../../../constants';
+import { EmployeeContext } from '../../../../../constants';
 
-export default function BankDetails({ readOnly }: { readOnly: boolean }) {
+export default function EmergencyContact({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
         updateEmployee({
             ...employee,
-            bankDetails: {
-                ...employee.bankDetails,
+            emergencyContact: {
+                ...employee.emergencyContact,
                 [property]: e.target.value,
             },
         });
@@ -26,42 +26,30 @@ export default function BankDetails({ readOnly }: { readOnly: boolean }) {
                 <MDBCol md="8">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Holder of bank account"
+                        label="Name"
                         size="lg"
                         id="form1"
                         type="text"
-                        value={employee.bankDetails.holder_of_bank_account}
+                        value={employee.emergencyContact.emergency_name}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'holder_of_bank_account');
+                            updateModel(e, 'emergency_name');
                         }}
                     />
                 </MDBCol>
+            </MDBRow>
+            <MDBRow>
                 <MDBCol md="8">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="IBAN"
+                        label="Phone Number"
                         size="lg"
                         id="form1"
                         type="text"
-                        value={employee.bankDetails.iban}
+                        value={employee.emergencyContact.emergency_number}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'iban');
-                        }}
-                    />
-                </MDBCol>
-                <MDBCol md="8">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="BIC"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.bankDetails.bic}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'bic');
+                            updateModel(e, 'emergency_number');
                         }}
                     />
                 </MDBCol>

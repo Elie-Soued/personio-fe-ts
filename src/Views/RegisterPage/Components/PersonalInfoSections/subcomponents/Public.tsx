@@ -1,6 +1,6 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { ChangeEvent, useContext } from 'react';
-import { team, department, office, positions, EmployeeContext } from '../../../../constants';
+import { team, department, office, positions, EmployeeContext } from '../../../../../constants';
 
 export default function PublicProfile({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);

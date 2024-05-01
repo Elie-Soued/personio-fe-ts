@@ -1,15 +1,15 @@
 import { MDBRow, MDBCol, MDBInput } from 'mdb-react-ui-kit';
 import { useContext } from 'react';
-import { EmployeeContext } from '../../../../constants';
+import { EmployeeContext } from '../../../../../constants';
 
-export default function EmergencyContact({ readOnly }: { readOnly: boolean }) {
+export default function EmployeeEquipment({ readOnly }: { readOnly: boolean }) {
     const { employee, updateEmployee } = useContext(EmployeeContext);
 
     const updateModel = (e: React.ChangeEvent<HTMLInputElement>, property: string) => {
         updateEmployee({
             ...employee,
-            emergencyContact: {
-                ...employee.emergencyContact,
+            employeeEquipment: {
+                ...employee.employeeEquipment,
                 [property]: e.target.value,
             },
         });
@@ -26,30 +26,28 @@ export default function EmergencyContact({ readOnly }: { readOnly: boolean }) {
                 <MDBCol md="8">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Name"
+                        label="Equipment Notebook"
                         size="lg"
                         id="form1"
                         type="text"
-                        value={employee.emergencyContact.emergency_name}
+                        value={employee.employeeEquipment.notebook}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'emergency_name');
+                            updateModel(e, 'notebook');
                         }}
                     />
                 </MDBCol>
-            </MDBRow>
-            <MDBRow>
                 <MDBCol md="8">
                     <MDBInput
                         wrapperClass="mb-4"
-                        label="Phone Number"
+                        label="Equipment Cellphone (optional)"
                         size="lg"
                         id="form1"
                         type="text"
-                        value={employee.emergencyContact.emergency_number}
+                        value={employee.employeeEquipment.cell_phone}
                         disabled={readOnly}
                         onChange={(e) => {
-                            updateModel(e, 'emergency_number');
+                            updateModel(e, 'cell_phone');
                         }}
                     />
                 </MDBCol>
