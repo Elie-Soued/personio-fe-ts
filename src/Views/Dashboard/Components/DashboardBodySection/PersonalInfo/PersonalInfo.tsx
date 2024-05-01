@@ -4,7 +4,7 @@ import PersonalInfoDisplay from './PersonalInfoDisplay';
 import { EmployeeProfileType } from '../../../../../types';
 import { EmployeeContext } from '../../../../../constants';
 
-export default function PersonalInfo(userData: EmployeeProfileType) {
+export default function PersonalInfoContainer(userData: EmployeeProfileType) {
     const [employee, setEmployee] = useState<EmployeeProfileType>(userData);
 
     const updateEmployee = (employeeUpdated: EmployeeProfileType) => {

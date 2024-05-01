@@ -5,7 +5,7 @@ import { MDBContainer } from 'mdb-react-ui-kit';
 import { EmployeeProfileType } from '../../types';
 import { employeeProfileBlank, sections, EmployeeContext } from '../../constants';
 
-import Section from './Components/RegisterSections/PersonalInfo';
+import PersonalInfoSection from './Components/PersonalInfoSections/PersonalInfoSection';
 import NagigationBtns from './Components/Buttons/NavigationBtn';
 import FooterBtns from './Components/Buttons/FooterBtns';
 
@@ -104,5 +104,7 @@ export default function RegisterPage() {
 }
 
 function renderActiveSection(activeSection: string) {
-    return <Section name={activeSection} showTitle={true} context={employeeProfileBlank} readOnly={false} />;
+    return (
+        <PersonalInfoSection name={activeSection} showTitle={true} context={employeeProfileBlank} readOnly={false} />
+    );
 }

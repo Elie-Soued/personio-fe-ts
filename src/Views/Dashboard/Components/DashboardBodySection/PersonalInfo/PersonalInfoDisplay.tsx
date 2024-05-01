@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { EmployeeContext } from '../../../../../constants';
-import Section from '../../../../RegisterPage/Components/RegisterSections/PersonalInfo';
+import PersonalInfoSection from '../../../../RegisterPage/Components/PersonalInfoSections/PersonalInfoSection';
 
 export default function PersonalInfoDisplay() {
     let [section, setSection] = useState('Public Profile');
@@ -8,7 +8,7 @@ export default function PersonalInfoDisplay() {
     const { employee } = useContext(EmployeeContext);
 
     function renderActiveSection(activeSection: string) {
-        return <Section name={activeSection} showTitle={false} context={employee} readOnly={true} />;
+        return <PersonalInfoSection name={activeSection} showTitle={false} context={employee} readOnly={true} />;
     }
 
     useEffect(() => {
