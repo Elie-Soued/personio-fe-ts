@@ -104,6 +104,8 @@ type SuccessModalType = {
     navigateDashboard: () => void;
 };
 
+type httpVerb = 'head' | 'options' | 'put' | 'post' | 'patch' | 'delete' | 'get';
+
 export type {
     EmployeeProfileType,
     EmployeeProfileContextType,
@@ -111,4 +113,5 @@ export type {
     NavigationBtnsType,
     FooterBtnsType,
     SuccessModalType,
+    httpVerb,
 };
