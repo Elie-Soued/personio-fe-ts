@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { doRequest, URL } from '../../Utils/ServiceUtils';
+import { doRequest } from '../../Utils/ServiceUtils';
 import DashboardNavbar from './Components/DashboardNavBar';
 import DashboardHeader from './Components/DashboardHeader';
 import DashboardBody from './Components/DashboardBody';
@@ -10,6 +10,12 @@ import { EmployeeProfileType } from '../../types';
 export default function Dashboard() {
     let [userData, setUserData] = useState({});
     const navigate = useNavigate();
+
+    const URL = process.env.REACT_APP_URL;
+
+    if (!URL) {
+        throw new Error('REACT_APP_URL is not defined');
+    }
 
     const getUserData = async () => {
         const response: AxiosResponse | Error = await doRequest('get', URL);

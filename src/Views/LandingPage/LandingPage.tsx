@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MDBContainer } from 'mdb-react-ui-kit';
-import { doRequest, URLLogin } from '../../Utils/ServiceUtils';
+import { doRequest } from '../../Utils/ServiceUtils';
 import { useNavigate } from 'react-router-dom';
 import undersurface from '../../images/undersurface.jpg';
 import landingpage from '../../images/landingpage.png';
@@ -11,6 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function LandingPage() {
     let [user_name, setUsername] = useState('');
     let [password, setPassword] = useState('');
+
+    const URLLogin = process.env.REACT_APP_URLLOGIN;
+
+    if (!URLLogin) {
+        throw new Error('REACT_APP_URLLOGIN is not defined');
+    }
 
     const navigate = useNavigate();
 
