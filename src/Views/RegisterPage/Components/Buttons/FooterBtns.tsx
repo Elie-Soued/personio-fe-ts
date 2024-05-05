@@ -12,11 +12,9 @@ export default function FooterBtns({ backToLoginFn, clearContext }: FooterBtnsTy
     const [progressBar, setProgressBar] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
-    const URLRegister = process.env.REACT_APP_URLREGISTER;
-
-    if (!URLRegister) {
-        throw new Error('REACT_APP_URLREGISTER is not defined');
-    }
+    const URLRegister = window.location.href.includes('http://localhost:3000/')
+        ? 'http://localhost:5000/users/register'
+        : 'https://www.pilexlaflex.com:5002/users/register';
 
     const { employee } = useContext(EmployeeContext);
     const navigate = useNavigate();
