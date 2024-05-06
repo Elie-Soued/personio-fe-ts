@@ -6,7 +6,11 @@ const doRequest = async (httpVerb: httpVerb, url: string, payload?: object) => {
 
     if (token) axios.defaults.headers[httpVerb]!['authorization'] = token;
     axios.defaults.headers[httpVerb]!['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers[httpVerb]!['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers[httpVerb]!['Access-Control-Allow-Origin'] = window.location.href.includes(
+        'http://localhost:3000/'
+    )
+        ? '*'
+        : 'https://www.pilexlaflex.com';
 
     try {
         const response = await axios[httpVerb](url, payload);
