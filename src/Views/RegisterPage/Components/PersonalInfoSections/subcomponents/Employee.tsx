@@ -15,43 +15,79 @@ export default function EmployeeEquipment({ readOnly }: { readOnly: boolean }) {
         });
     };
 
-    return (
-        <div
-            className="flex-column d-flex justify-content-between w-100"
-            style={{
-                height: '80%',
-            }}
-        >
-            <MDBRow>
-                <MDBCol md="8">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Equipment Notebook"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.employeeEquipment.notebook}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'notebook');
-                        }}
-                    />
-                </MDBCol>
-                <MDBCol md="8">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Equipment Cellphone (optional)"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.employeeEquipment.cell_phone}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'cell_phone');
-                        }}
-                    />
-                </MDBCol>
-            </MDBRow>
-        </div>
-    );
+    const renderEditMode = () => {
+        return (
+            <div
+                className="flex-column d-flex justify-content-between w-100"
+                style={{
+                    height: '80%',
+                }}
+            >
+                <MDBRow>
+                    <MDBCol md="8">
+                        <MDBInput
+                            wrapperClass="mb-4"
+                            label="Equipment Notebook"
+                            size="lg"
+                            id="form1"
+                            type="text"
+                            value={employee.employeeEquipment.notebook}
+                            onChange={(e) => {
+                                updateModel(e, 'notebook');
+                            }}
+                        />
+                    </MDBCol>
+                    <MDBCol md="8">
+                        <MDBInput
+                            wrapperClass="mb-4"
+                            label="Equipment Cellphone (optional)"
+                            size="lg"
+                            id="form1"
+                            type="text"
+                            value={employee.employeeEquipment.cell_phone}
+                            onChange={(e) => {
+                                updateModel(e, 'cell_phone');
+                            }}
+                        />
+                    </MDBCol>
+                </MDBRow>
+            </div>
+        );
+    };
+
+    const renderReadMode = () => {
+        return (
+            <div
+                className="flex-column d-flex justify-content-between w-100"
+                style={{
+                    height: '80%',
+                }}
+            >
+                <MDBRow>
+                    <MDBCol md="8">
+                        <div className="d-flex flex-row justify-content-between">
+                            <label>
+                                <b>Equipment Notebook</b>
+                            </label>
+                            <span>{employee.employeeEquipment.notebook}</span>
+                        </div>
+                    </MDBCol>
+                    <MDBCol md="8">
+                        <div className="d-flex flex-row justify-content-between">
+                            <label>
+                                <b>Equipment Cellphone (optional)</b>
+                            </label>
+                            <span>{employee.employeeEquipment.cell_phone}</span>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+            </div>
+        );
+    };
+
+    const renderComponent = () => {
+        if (readOnly) return renderReadMode();
+        return renderEditMode();
+    };
+    return renderComponent();
 }

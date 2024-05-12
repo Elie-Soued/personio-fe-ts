@@ -15,45 +15,84 @@ export default function EmergencyContact({ readOnly }: { readOnly: boolean }) {
         });
     };
 
-    return (
-        <div
-            className="flex-column d-flex justify-content-between w-100"
-            style={{
-                height: '80%',
-            }}
-        >
-            <MDBRow>
-                <MDBCol md="8">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Name"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.emergencyContact.emergency_name}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'emergency_name');
-                        }}
-                    />
-                </MDBCol>
-            </MDBRow>
-            <MDBRow>
-                <MDBCol md="8">
-                    <MDBInput
-                        wrapperClass="mb-4"
-                        label="Phone Number"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={employee.emergencyContact.emergency_number}
-                        disabled={readOnly}
-                        onChange={(e) => {
-                            updateModel(e, 'emergency_number');
-                        }}
-                    />
-                </MDBCol>
-            </MDBRow>
-        </div>
-    );
+    const renderEditMode = () => {
+        return (
+            <div
+                className="flex-column d-flex justify-content-between w-100"
+                style={{
+                    height: '80%',
+                }}
+            >
+                <MDBRow>
+                    <MDBCol md="8">
+                        <MDBInput
+                            wrapperClass="mb-4"
+                            label="Emergency contact"
+                            size="lg"
+                            id="form1"
+                            type="text"
+                            value={employee.emergencyContact.emergency_name}
+                            onChange={(e) => {
+                                updateModel(e, 'emergency_name');
+                            }}
+                        />
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow>
+                    <MDBCol md="8">
+                        <MDBInput
+                            wrapperClass="mb-4"
+                            label="Phone Number"
+                            size="lg"
+                            id="form1"
+                            type="text"
+                            value={employee.emergencyContact.emergency_number}
+                            onChange={(e) => {
+                                updateModel(e, 'emergency_number');
+                            }}
+                        />
+                    </MDBCol>
+                </MDBRow>
+            </div>
+        );
+    };
+
+    const renderReadMode = () => {
+        return (
+            <div
+                className="flex-column d-flex justify-content-between w-100"
+                style={{
+                    height: '80%',
+                }}
+            >
+                <MDBRow>
+                    <MDBCol md="8">
+                        <div className="d-flex flex-row justify-content-between">
+                            <label>
+                                <b>Emergency Contact</b>
+                            </label>
+                            <span>{employee.emergencyContact.emergency_name}</span>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow>
+                    <MDBCol md="8">
+                        <div className="d-flex flex-row justify-content-between">
+                            <label>
+                                <b>Phone Number</b>
+                            </label>
+                            <span>{employee.emergencyContact.emergency_number}</span>
+                        </div>
+                    </MDBCol>
+                </MDBRow>
+            </div>
+        );
+    };
+
+    const renderComponent = () => {
+        if (readOnly) return renderReadMode();
+        return renderEditMode();
+    };
+
+    return renderComponent();
 }
