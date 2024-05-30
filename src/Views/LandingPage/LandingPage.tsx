@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MDBContainer } from 'mdb-react-ui-kit';
 import { doRequest } from '../../Utils/ServiceUtils';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +18,12 @@ export default function LandingPage() {
             : 'https://www.pilexlaflex.com:5002/users/login';
 
     const navigate = useNavigate();
+
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            login();
+        }
+    };
 
     const login = async () => {
         try {
@@ -68,6 +74,7 @@ export default function LandingPage() {
                                         className="form-control w-75 "
                                         placeholder="Enter your username"
                                         value={user_name}
+                                        onKeyDown={handleKeyDown}
                                         onChange={(e) => {
                                             setUsername(e.target.value);
                                         }}
@@ -82,6 +89,7 @@ export default function LandingPage() {
                                         className="form-control w-75"
                                         placeholder="Enter your password"
                                         value={password}
+                                        onKeyDown={handleKeyDown}
                                         onChange={(e) => {
                                             setPassword(e.target.value);
                                         }}

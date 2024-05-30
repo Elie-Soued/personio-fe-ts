@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmployeeProfileType } from '../../../types';
 
 export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
-    const { user_name, position, team, department, office } = userData.public;
+    const { position, team, department, office, first_name, last_name } = userData.public;
     const { supervisor, hire_date } = userData.hrInformation;
 
     return (
@@ -41,7 +41,9 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
             <div className="d-flex flex-row col-12 h-75">
                 <div>
                     <span>
-                        <h4>{user_name}</h4>
+                        <h4>
+                            {first_name} {last_name}
+                        </h4>
                     </span>
                     <p style={{ margin: 0 }} className="d-flex flex-row  col-12">
                         <span className="d-flex flex-row">
