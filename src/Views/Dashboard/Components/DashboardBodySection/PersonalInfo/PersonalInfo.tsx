@@ -11,11 +11,14 @@ export default function PersonalInfoContainer(userData: EmployeeProfileType) {
         setEmployee(employeeUpdated);
     };
     return (
-        <div className="row g-0" style={{ height: 'auto' }}>
-            <div className={"d-flex align-items-center col-md-3 col-12 ${h-md-100 h-25'}"}>
+        <div className="row g-0 ">
+            <div className={'d-flex align-items-center col-md-3 col-12 '}>
                 <PersonalInfoNavBar />
             </div>
-            <div className={"d-flex align-items-center col-md-9 col-12 ${'h-md-100 h-75'}"}>
+            <div
+                className={'d-flex align-items-center col-md-6 col-12  '}
+                style={{ boxShadow: '8px 8px 8px 8px #00000029' }}
+            >
                 <EmployeeContext.Provider value={{ employee, updateEmployee }}>
                     <PersonalInfoDisplay />
                 </EmployeeContext.Provider>

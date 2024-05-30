@@ -24,15 +24,5 @@ export default function PersonalInfoDisplay() {
         };
     }, []);
 
-    return (
-        <div
-            className="w-100 h-auto"
-            style={{
-                height: 'auto',
-                border: '1px solid white',
-            }}
-        >
-            {renderActiveSection(section)}
-        </div>
-    );
+    return <div className="w-100 h-auto">{renderActiveSection(section)}</div>;
 }
