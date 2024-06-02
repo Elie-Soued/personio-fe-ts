@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { doRequest } from '../../../Utils/ServiceUtils';
 import { faBriefcase, faMapMarker, faUsers, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmployeeProfileType } from '../../../types';
@@ -8,20 +8,39 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     const { position, team, department, office, first_name, last_name } = userData.public;
     const { supervisor, hire_date } = userData.hrInformation;
 
+    const URLUpload = window.location.href.includes('http://localhost:3000/')
+        ? 'http://localhost:5000/users/upload'
+        : 'https://www.pilexlaflex.com:5002/users/upload';
+
+    const upload = async (file: File) => {
+        const formData = new FormData();
+        formData.append('profilePicture', file);
+
+        try {
+            const response = await doRequest('post', URLUpload, formData, true);
+            console.log('response :>> ', response);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <div className="d-flex flex-row">
             <div>
                 <div>
                     <input
                         type="file"
-                        id="upload"
+                        id="profilePicture"
+                        name="profilePicture"
                         style={{ display: 'none' }}
-                        onChange={(e) => {
-                            console.log(e);
+                        onChange={async (e) => {
+                            if (e.target.files) {
+                                await upload(e.target.files[0]);
+                            }
                         }}
                     />
                     <label
-                        htmlFor="upload"
+                        htmlFor="profilePicture"
                         style={{
                             background: 'rgba(0,0,0,.122)',
                             borderRadius: '50%',
