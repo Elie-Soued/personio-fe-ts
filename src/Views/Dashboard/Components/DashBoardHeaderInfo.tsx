@@ -23,10 +23,8 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
             const response = await doRequest('get', URLProfilePicture);
             console.log('response :>> ', response);
 
-            const profilePicture = await doRequest('get', response.data.profilePictureUrl);
+            setProfilePicture(response.data.profilePictureUrl);
 
-            console.log('profilePicture :>> ', profilePicture);
-            //setProfilePicture(response.data.profilepicture);
             //console.log('profilePicture :>> ', profilePicture);
         } catch (e) {
             console.log(e);
