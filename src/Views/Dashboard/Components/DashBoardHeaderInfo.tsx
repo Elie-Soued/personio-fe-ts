@@ -21,9 +21,14 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     const getProfilePicture = async () => {
         try {
             const response = await doRequest('get', URLProfilePicture);
+
             console.log('response :>> ', response);
 
-            setProfilePicture(response.data.profilePictureUrl);
+            const path = response.data.profilePicturePath;
+
+            console.log(' :`${URLProfilePicture}/${path}`>> ', `${URLProfilePicture}/${path}`);
+
+            setProfilePicture(`${URLProfilePicture}/${path}`);
 
             //console.log('profilePicture :>> ', profilePicture);
         } catch (e) {
