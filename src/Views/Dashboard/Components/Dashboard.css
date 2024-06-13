@@ -1,0 +1,11 @@
+.profilePicture {
+    background: rgba(0, 0, 0, 0.122);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

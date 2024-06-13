@@ -3,6 +3,7 @@ import { doRequest } from '../../../Utils/ServiceUtils';
 import { faBriefcase, faMapMarker, faUsers, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmployeeProfileType } from '../../../types';
+import  "./Dashboard.css";
 
 export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     const { position, team, department, office, first_name, last_name } = userData.public;
@@ -59,7 +60,7 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     };
 
     useEffect(() => {
-        getProfilePicture();
+        // getProfilePicture();
     }, []);
 
     return (
@@ -79,33 +80,15 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
                     />
                     <label
                         htmlFor="profilePicture"
-                        style={{
-                            background: 'rgba(0,0,0,.122)',
-                            borderRadius: '50%',
-                            height: '60px',
-                            width: '60px',
-                            margin: '0 10px',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
+                        className="profilePicture"
+           
                     >
                         {profilePicture ? (
                             <img
                                 src={getURL(profilePicture)}
                                 alt="profile"
-                                style={{
-                                    background: 'rgba(0,0,0,.122)',
-                                    borderRadius: '50%',
-                                    height: '60px',
-                                    width: '60px',
-                                    margin: '0 10px',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
+                                className='profilePicture'
+                    
                             />
                         ) : (
                             <FontAwesomeIcon icon={faUpload} />
