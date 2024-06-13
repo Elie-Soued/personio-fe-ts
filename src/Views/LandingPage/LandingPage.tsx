@@ -12,10 +12,7 @@ export default function LandingPage() {
     let [user_name, setUsername] = useState('');
     let [password, setPassword] = useState('');
 
-    const URLLogin =
-        window.location.href === 'http://localhost:3000/'
-            ? 'http://localhost:5000/users/login'
-            : 'https://www.pilexlaflex.com:5002/users/login';
+    const URLLogin = process.env.REACT_APP_URLLogin;
 
     const navigate = useNavigate();
 

@@ -3,7 +3,7 @@ import { doRequest } from '../../../Utils/ServiceUtils';
 import { faBriefcase, faMapMarker, faUsers, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmployeeProfileType } from '../../../types';
-import  "./Dashboard.css";
+import './Dashboard.css';
 
 export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     const { position, team, department, office, first_name, last_name } = userData.public;
@@ -11,13 +11,8 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
 
     const [profilePicture, setProfilePicture] = useState<any>(undefined);
 
-    const URLUpload = window.location.href.includes('http://localhost:3000/')
-        ? 'http://localhost:5000/users/upload'
-        : 'https://www.pilexlaflex.com:5002/users/upload';
-
-    const URLProfilePicture = window.location.href.includes('http://localhost:3000/')
-        ? 'http://localhost:5000/users/profilePicture'
-        : 'https://www.pilexlaflex.com:5002/users/profilePicture';
+    const URLUpload = process.env.REACT_APP_URLUpload;
+    const URLProfilePicture = process.env.REACT_APP_URLProfilePicture;
 
     const getProfilePicture = async () => {
         try {
@@ -78,18 +73,9 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
                             }
                         }}
                     />
-                    <label
-                        htmlFor="profilePicture"
-                        className="profilePicture"
-           
-                    >
+                    <label htmlFor="profilePicture" className="profilePicture">
                         {profilePicture ? (
-                            <img
-                                src={getURL(profilePicture)}
-                                alt="profile"
-                                className='profilePicture'
-                    
-                            />
+                            <img src={getURL(profilePicture)} alt="profile" className="profilePicture" />
                         ) : (
                             <FontAwesomeIcon icon={faUpload} />
                         )}

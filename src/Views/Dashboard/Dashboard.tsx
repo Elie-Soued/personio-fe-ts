@@ -11,9 +11,7 @@ export default function Dashboard() {
     let [userData, setUserData] = useState({});
     const navigate = useNavigate();
 
-    const URL = window.location.href.includes('http://localhost:3000/')
-        ? 'http://localhost:5000/users'
-        : 'https://www.pilexlaflex.com:5002/users';
+    const URL = process.env.REACT_APP_URL;
 
     const getUserData = async () => {
         const response: AxiosResponse | Error = await doRequest('get', URL);

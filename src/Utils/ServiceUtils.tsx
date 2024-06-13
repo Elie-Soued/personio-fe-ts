@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { httpVerb } from '../types';
 
-const doRequest = async (httpVerb: httpVerb, url: string, payload?: object, multiPart = false) => {
+const doRequest = async (httpVerb: httpVerb, url: any, payload?: object, multiPart = false) => {
     const token = localStorage.getItem('token');
 
     if (token) axios.defaults.headers[httpVerb]!['authorization'] = token;
