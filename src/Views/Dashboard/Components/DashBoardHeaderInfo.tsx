@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { doRequest } from '../../../Utils/ServiceUtils';
 import { faBriefcase, faMapMarker, faUsers, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,42 +6,15 @@ import { EmployeeProfileType } from '../../../types';
 import './Dashboard.css';
 
 export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
-    const { position, team, department, office, first_name, last_name } = userData.public;
+    const { position, team, department, office, first_name, last_name, user_name } = userData.public;
     const { supervisor, hire_date } = userData.hrInformation;
 
     const [profilePicture, setProfilePicture] = useState<any>(undefined);
 
     const URLUpload = process.env.REACT_APP_URLUpload;
-    const URLProfilePicture = process.env.REACT_APP_URLProfilePicture;
-
-    const getProfilePicture = async () => {
-        try {
-            const response = await doRequest('get', URLProfilePicture);
-
-            console.log('response :>> ', response);
-
-            const path = response.data.profilePicturePath;
-
-            console.log(' :`${URLProfilePicture}/${path}`>> ', `${URLProfilePicture}/${path}`);
-
-            setProfilePicture(`${URLProfilePicture}/${path}`);
-
-            //console.log('profilePicture :>> ', profilePicture);
-        } catch (e) {
-            console.log(e);
-        }
-    };
-
-    const getURL = (url: string | File) => {
-        if (typeof url === 'string') {
-            return url;
-        } else {
-            return URL.createObjectURL(url);
-        }
-    };
+    const URLProfilePicture = `${process.env.REACT_APP_URLProfilePicture}/${user_name}.jpg`;
 
     const upload = async (file: File) => {
-        console.log('file :>> ', file);
         setProfilePicture(file);
         const formData = new FormData();
         formData.append('profilePicture', file);
@@ -53,10 +26,6 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
             console.log(e);
         }
     };
-
-    useEffect(() => {
-        // getProfilePicture();
-    }, []);
 
     return (
         <div className="d-flex flex-row">
@@ -75,7 +44,7 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
                     />
                     <label htmlFor="profilePicture" className="profilePicture">
                         {profilePicture ? (
-                            <img src={getURL(profilePicture)} alt="profile" className="profilePicture" />
+                            <img src={URLProfilePicture} alt="profile" className="profilePicture" />
                         ) : (
                             <FontAwesomeIcon icon={faUpload} />
                         )}
