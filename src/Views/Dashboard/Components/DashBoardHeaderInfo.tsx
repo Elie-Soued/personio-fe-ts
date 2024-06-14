@@ -43,11 +43,13 @@ export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
                         }}
                     />
                     <label htmlFor="profilePicture" className="profilePicture">
-                        {profilePicture ? (
+                        <img src={URLProfilePicture} alt="profile" className="profilePicture" />
+
+                        {/* {profilePicture ? (
                             <img src={URLProfilePicture} alt="profile" className="profilePicture" />
                         ) : (
                             <FontAwesomeIcon icon={faUpload} />
-                        )}
+                        )} */}
                     </label>
                 </div>
             </div>
