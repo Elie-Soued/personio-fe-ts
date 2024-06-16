@@ -8,20 +8,19 @@ import './Dashboard.css';
 export default function DashboardHeaderInfo(userData: EmployeeProfileType) {
     const { position, team, department, office, first_name, last_name, user_name } = userData.public;
     const { supervisor, hire_date } = userData.hrInformation;
-
-    const [profilePicture, setProfilePicture] = useState<any>(undefined);
+    const [URLProfilePicture, setURLProfilePicture] = useState<string>(
+        `${process.env.REACT_APP_URLProfilePicture}/${user_name}.jpg`
+    );
 
     const URLUpload = process.env.REACT_APP_URLUpload;
-    const URLProfilePicture = `${process.env.REACT_APP_URLProfilePicture}/${user_name}.jpg`;
 
     const upload = async (file: File) => {
-        setProfilePicture(file);
         const formData = new FormData();
         formData.append('profilePicture', file);
 
         try {
             const response = await doRequest('post', URLUpload, formData, true);
-            console.log('response :>> ', response);
+            if (response) setURLProfilePicture(URL.createObjectURL(file));
         } catch (e) {
             console.log(e);
         }
